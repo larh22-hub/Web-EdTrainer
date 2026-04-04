@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EdTrainer TV — IA, tecnología y criterio. Canal de YouTube de referencia en tecnología educativa con +286.000 suscriptores. Luis Alfonso Ruiz, Google Certified Trainer & Innovator.">
+<meta name="keywords" content="EdTrainer TV, tecnología educativa, Google Workspace, inteligencia artificial educación, formación docentes, Luis Alfonso Ruiz">
+<meta property="og:title" content="EdTrainer TV — IA, tecnología y criterio">
+<meta property="og:description" content="+286.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
+<title>EdTrainer TV — IA, tecnología y criterio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════════ */
+:root {
+  --bg:           #050f0b;
+  --bg2:          #091a13;
+  --bg3:          #0d2219;
+  --bg4:          #071410;
+  --teal:         #3dd8c4;
+  --teal2:        #61e3d3;
+  --teal3:        #1fb8a3;
+  --teal-glow:    rgba(61,216,196,0.13);
+  --teal-border:  rgba(61,216,196,0.2);
+  --teal-border2: rgba(61,216,196,0.35);
+  --white:        #eef5f3;
+  --dim:          rgba(238,245,243,0.62);
+  --dim2:         rgba(238,245,243,0.38);
+  --faint:        rgba(238,245,243,0.08);
+  --red:          #ff4444;
+  --red-glow:     rgba(255,68,68,0.15);
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', sans-serif;
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    20px;
+  --radius-xl:    28px;
+  --shadow-card:  0 2px 40px rgba(0,0,0,0.45), 0 0 0 1px var(--teal-border);
+  --shadow-glow:  0 0 60px rgba(61,216,196,0.07);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-sans); }
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+════════════════════════════════════════════ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  height: 2.5px; width: 0%;
+  background: linear-gradient(90deg, var(--teal3), var(--teal), var(--teal2));
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px var(--teal);
+}
+
+/* ═══════════════════════════════════════════
+   CANVAS
+════════════════════════════════════════════ */
+#canvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: 0.55;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 75% 60% at 8% 4%, rgba(61,216,196,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 88% 88%, rgba(61,216,196,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(5,15,11,0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   LAYOUT UTILS
+════════════════════════════════════════════ */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.container--narrow { max-width: 820px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.section-space { padding: 110px 0; }
+.section-space--sm { padding: 72px 0; }
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+════════════════════════════════════════════ */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
+}
+.eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+  flex-shrink: 0; box-shadow: 0 0 9px var(--teal);
+  animation: pulse-dot 2.6s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 5px var(--teal); transform: scale(1); }
+  50%      { box-shadow: 0 0 18px var(--teal); transform: scale(1.3); }
+}
+.tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--teal);
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 18px;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.1; }
+h1 { font-size: clamp(54px, 8.5vw, 100px); font-weight: 700; letter-spacing: -0.04em; }
+h2 { font-size: clamp(32px, 4.5vw, 54px); font-weight: 700; letter-spacing: -0.025em; margin-bottom: 16px; }
+h2 em { font-style: italic; color: var(--teal); font-weight: 400; }
+h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+.lead { font-size: 18px; color: var(--dim); line-height: 1.8; }
+.body-text { font-size: 15px; color: var(--dim); line-height: 1.75; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header .lead { max-width: 580px; margin: 0 auto; }
+
+/* ═══════════════════════════════════════════
+   DIVIDER
+════════════════════════════════════════════ */
+hr.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--teal-border), transparent); }
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.04em; padding: 13px 28px; border-radius: var(--radius-sm);
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-teal {
+  background: var(--teal); color: #041009;
+  box-shadow: 0 4px 24px rgba(61,216,196,0.28);
+}
+.btn-teal:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,216,196,0.42); }
+.btn-ghost {
+  background: transparent; color: var(--white);
+  border: 1.5px solid var(--teal-border);
+}
+.btn-ghost:hover { border-color: var(--teal); background: var(--teal-glow); transform: translateY(-2px); }
+.btn-yt {
+  background: #ff0000; color: #fff;
+  box-shadow: 0 4px 20px rgba(255,0,0,0.28);
+}
+.btn-yt:hover { background: #e60000; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,0,0,0.4); }
+.btn-sm { padding: 9px 20px; font-size: 13px; }
+.btn-lg { padding: 16px 36px; font-size: 15px; }
+
+/* ═══════════════════════════════════════════
+   FADE IN ANIMATION
+════════════════════════════════════════════ */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in--delay-1 { transition-delay: 0.1s; }
+.fade-in--delay-2 { transition-delay: 0.2s; }
+.fade-in--delay-3 { transition-delay: 0.3s; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0; height: 66px;
+  backdrop-filter: blur(28px) saturate(1.4);
+  background: rgba(5,15,11,0.85);
+  border-bottom: 1px solid var(--teal-border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.5); }
+nav .container { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 24px; }
+
+.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
+.nav-logo-mark {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-weight: 700; font-size: 15px;
+  color: var(--teal); box-shadow: 0 0 16px rgba(61,216,196,0.18);
+  transition: box-shadow 0.2s;
+}
+.nav-logo:hover .nav-logo-mark { box-shadow: 0 0 28px rgba(61,216,196,0.35); }
+.nav-logo-text {
+  font-family: var(--font-serif); font-size: 19px; font-weight: 600;
+  color: var(--white); letter-spacing: -0.01em;
+}
+.nav-logo-text span { color: var(--teal); font-style: normal; }
+
+.nav-center { display: flex; align-items: center; gap: 2px; list-style: none; }
+.nav-center a {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--dim);
+  padding: 8px 14px; border-radius: var(--radius-sm);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-center a:hover { color: var(--teal); background: var(--teal-glow); }
+.nav-center a.active { color: var(--teal); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-yt-btn {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.28);
+  color: #ff5555; font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 8px 16px; border-radius: var(--radius-sm);
+  text-decoration: none; transition: all 0.2s;
+}
+.nav-yt-btn:hover { background: rgba(255,0,0,0.2); border-color: rgba(255,0,0,0.5); color: #ff7777; }
+
+/* Mobile hamburger */
+.nav-burger {
+  display: none; background: none; border: 1px solid var(--teal-border);
+  color: var(--white); padding: 8px; border-radius: var(--radius-sm);
+  cursor: pointer; flex-direction: column; gap: 4px; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+}
+.nav-burger span {
+  display: block; width: 18px; height: 1.5px; background: var(--white);
+  transition: all 0.25s; border-radius: 2px;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* Mobile menu */
+.nav-mobile {
+  display: none; position: fixed; top: 66px; left: 0; right: 0; z-index: 99;
+  background: rgba(5,12,9,0.97); border-bottom: 1px solid var(--teal-border);
+  padding: 24px 28px 32px; backdrop-filter: blur(20px);
+  flex-direction: column; gap: 4px;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  font-size: 15px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--dim); padding: 12px 16px; border-radius: var(--radius-sm);
+  transition: all 0.2s; border: 1px solid transparent;
+}
+.nav-mobile a:hover { color: var(--teal); border-color: var(--teal-border); background: var(--teal-glow); }
+.nav-mobile-yt {
+  margin-top: 12px; padding: 13px 16px; border-radius: var(--radius-sm);
+  background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.28) !important;
+  color: #ff5555 !important; display: flex; align-items: center; gap: 9px;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+════════════════════════════════════════════ */
+#hero {
+  position: relative; z-index: 1;
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 130px 0 80px;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  border-radius: 100px; padding: 6px 16px 6px 10px;
+  margin-bottom: 24px; cursor: default;
+}
+.hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse-dot 2s infinite; }
+.hero-badge-text { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); }
+
+.hero-title { margin-bottom: 0; }
+.hero-title .part1 { display: inline-block; color: var(--white); }
+.hero-title .part2 { display: inline-block; color: var(--teal); font-style: normal; font-weight: 400; }
+
+.hero-tagline {
+  font-family: var(--font-serif); font-style: italic; font-weight: 300;
+  font-size: clamp(19px, 2.5vw, 25px); color: var(--dim);
+  margin: 20px 0 38px; letter-spacing: 0.015em;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Stats strip */
+.hero-stats {
+  display: flex; gap: 0; margin-top: 52px;
+  border-top: 1px solid var(--teal-border);
+  padding-top: 32px;
+}
+.hero-stat {
+  flex: 1; padding-right: 28px;
+  border-right: 1px solid var(--teal-border);
+}
+.hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
+.hero-stat:nth-child(2) { padding-left: 28px; }
+.stat-num {
+  font-family: var(--font-serif); font-size: 40px; font-weight: 700;
+  color: var(--teal); letter-spacing: -0.04em; display: block; line-height: 1;
+}
+.stat-label { font-size: 11px; color: var(--dim2); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 5px; display: block; }
+
+/* Hero right - visual */
+.hero-visual { position: relative; }
+.hero-banner-wrap {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--teal-border);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+.hero-banner-img { width: 100%; display: block; }
+.hero-banner-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,15,11,0.55) 0%, transparent 55%);
+}
+/* Floating card on banner */
+.hero-float-card {
+  position: absolute; bottom: -20px; left: -20px;
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-md); padding: 16px 20px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  animation: float-card 4s ease-in-out infinite;
+}
+@keyframes float-card {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-card-icon { font-size: 28px; }
+.float-card-num { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--teal); line-height: 1; }
+.float-card-label { font-size: 11px; color: var(--dim2); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ═══════════════════════════════════════════
+   TRUST BAR
+════════════════════════════════════════════ */
+#trust {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--teal-border);
+  border-bottom: 1px solid var(--teal-border);
+  background: linear-gradient(135deg, rgba(9,26,19,0.6), rgba(13,34,25,0.4));
+  padding: 28px 0;
+}
+.trust-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 48px; flex-wrap: wrap;
+}
+.trust-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim2); }
+.trust-divider { width: 1px; height: 28px; background: var(--teal-border); }
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 500; color: var(--dim);
+}
+.trust-item-icon { font-size: 16px; }
+
+/* ═══════════════════════════════════════════
+   CANAL / YOUTUBE
+════════════════════════════════════════════ */
+#canal { position: relative; z-index: 1; }
+.canal-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; flex-wrap: wrap; }
+.canal-top .section-header { text-align: left; margin-bottom: 0; }
+.canal-top .section-header .lead { margin: 0; text-align: left; }
+
+/* Elfsight area */
+.elfsight-zone {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.elfsight-placeholder {
+  padding: 56px 40px; display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 16px; min-height: 340px; justify-content: center;
+}
+.elfsight-icon { font-size: 42px; }
+.elfsight-title { font-family: var(--font-serif); font-size: 24px; font-weight: 600; }
+.elfsight-desc { font-size: 14px; color: var(--dim); max-width: 380px; line-height: 1.7; }
+.elfsight-code {
+  background: var(--bg); border: 1px solid var(--teal-border); border-radius: var(--radius-sm);
+  padding: 12px 18px; font-family: monospace; font-size: 11.5px;
+  color: var(--teal); text-align: left; white-space: pre-wrap; word-break: break-all; max-width: 540px;
+}
+/* Preview videos placeholder */
+.video-preview-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: var(--bg);
+}
+.video-preview-card {
+  aspect-ratio: 16/9; position: relative; overflow: hidden;
+  background: var(--bg3); cursor: pointer;
+  transition: filter 0.2s;
+}
+.video-preview-card:hover { filter: brightness(1.1); }
+.video-preview-card:hover .vp-play { transform: translate(-50%,-50%) scale(1.1); }
+.vp-thumb {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--bg3) 0%, rgba(61,216,196,0.08) 100%);
+}
+.vp-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(61,216,196,0.15); border: 1.5px solid var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); font-size: 18px; transition: transform 0.2s;
+}
+.vp-label {
+  position: absolute; bottom: 10px; left: 10px; right: 10px;
+  font-size: 11px; color: rgba(238,245,243,0.7); line-height: 1.4;
+}
+.canal-footer { margin-top: 32px; text-align: center; }
+
+/* ═══════════════════════════════════════════
+   SOBRE EL AUTOR
+════════════════════════════════════════════ */
+#sobre { position: relative; z-index: 1; background: linear-gradient(180deg, transparent, rgba(10,26,20,0.35), transparent); }
+.sobre-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; align-items: start; }
+
+/* Autor card */
+.autor-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: sticky; top: 90px;
+}
+.autor-card-top {
+  background: linear-gradient(160deg, #091a10 0%, #0d2a1c 55%, #0e3322 100%);
+  padding: 40px 36px 32px; text-align: center; position: relative;
+  border-bottom: 1px solid var(--teal-border);
+}
+.autor-card-top::before {
+  content: '';
+  position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(61,216,196,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.autor-photo {
+  width: 104px; height: 104px; border-radius: 50%;
+  border: 2.5px solid var(--teal);
+  box-shadow: 0 0 32px rgba(61,216,196,0.22), 0 0 0 7px rgba(61,216,196,0.07);
+  margin: 0 auto 18px;
+  background: var(--bg3); display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.profile-img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; opacity: 1; position: absolute; inset: 0;
+}
+.autor-initials { font-family: var(--font-serif); font-size: 30px; font-weight: 700; color: var(--teal); }
+.autor-name { font-family: var(--font-serif); font-size: 21px; font-weight: 700; margin-bottom: 5px; }
+.autor-role { font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal); }
+.autor-badges { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; margin-top: 16px; }
+.autor-badge {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+  padding: 4px 11px; border-radius: 100px;
+  background: var(--teal-glow); border: 1px solid var(--teal-border); color: var(--teal);
+}
+.autor-card-body { padding: 26px 28px; }
+.cred-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.cred-item { display: flex; align-items: flex-start; gap: 12px; font-size: 13.5px; color: var(--dim); line-height: 1.5; }
+.cred-icon {
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 7px;
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 1px;
+}
+.autor-card-footer { padding: 18px 28px 24px; border-top: 1px solid var(--teal-border); }
+.social-row { display: flex; gap: 8px; }
+.social-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 9px 12px; border-radius: var(--radius-sm);
+  background: var(--faint); border: 1px solid var(--teal-border);
+  font-size: 12px; font-weight: 500; color: var(--dim); text-decoration: none;
+  transition: all 0.2s;
+}
+.social-btn:hover { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+
+/* Sobre content */
+.sobre-content h2 { margin-bottom: 20px; }
+.sobre-content p { font-size: 16px; color: var(--dim); margin-bottom: 18px; line-height: 1.8; }
+.areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+.area-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-md); padding: 20px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  cursor: default;
+}
+.area-card:hover { border-color: var(--teal); background: rgba(61,216,196,0.06); transform: translateY(-3px); }
+.area-icon { font-size: 22px; margin-bottom: 10px; }
+.area-title { font-family: var(--font-serif); font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.area-desc { font-size: 12.5px; color: var(--dim); line-height: 1.55; }
+
+/* Experience timeline */
+.timeline { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+.timeline-item { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
+.timeline-item::before {
+  content: ''; position: absolute; left: 11px; top: 26px; bottom: 0;
+  width: 1px; background: var(--teal-border);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item:last-child::before { display: none; }
+.tl-dot {
+  width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%;
+  border: 2px solid var(--teal); background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--teal); margin-top: 2px;
+  box-shadow: 0 0 10px rgba(61,216,196,0.2);
+}
+.tl-content { flex: 1; }
+.tl-year { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+.tl-title { font-weight: 600; font-size: 14px; color: var(--white); margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--dim); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════
+   SERIES Y CURSOS
+════════════════════════════════════════════ */
+#series { position: relative; z-index: 1; }
+.series-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.series-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s;
+}
+.series-card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 20px rgba(61,216,196,0.15); 
+  border-color: var(--teal); 
+}
+.series-img-wrap {
+  aspect-ratio: 16/9; background: var(--bg3); position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--teal-border);
+}
+.series-label {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px;
+  background: var(--bg); border: 1px solid var(--teal-border); color: var(--teal);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.series-card:hover .series-label { background: var(--teal); color: var(--bg); border-color: var(--teal); }
+.series-thumb {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.7;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.series-card:hover .series-thumb { transform: scale(1.05); opacity: 0.9; }
+.series-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
+.series-title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 12px; color: var(--white); }
+.series-desc { font-size: 13.5px; color: var(--dim); line-height: 1.7; flex: 1; margin-bottom: 24px; }
+.btn-series {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--radius-sm);
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  color: var(--teal); font-size: 12.5px; font-weight: 600; letter-spacing: 0.05em;
+  text-decoration: none; transition: all 0.2s;
+}
+.series-card:hover .btn-series { background: var(--teal); color: var(--bg); border-color: var(--teal); }
+.series-footer { margin-top: 56px; text-align: center; }
+
+/* ═══════════════════════════════════════════
+   RECURSOS
+════════════════════════════════════════════ */
+#recursos { position: relative; z-index: 1; }
+.recursos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.recurso-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.recurso-card:hover { transform: translateY(-5px); box-shadow: 0 20px 55px rgba(0,0,0,0.5), 0 0 0 1px var(--teal); border-color: var(--teal); }
+.recurso-top {
+  padding: 28px 26px 22px;
+  background: linear-gradient(150deg, var(--bg3), rgba(13,34,25,0.7));
+  border-bottom: 1px solid var(--teal-border); position: relative;
+}
+.recurso-emoji { font-size: 36px; margin-bottom: 14px; display: block; }
+.recurso-type { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+.recurso-title { font-family: var(--font-serif); font-size: 18px; font-weight: 700; line-height: 1.3; }
+.recurso-body { padding: 20px 26px 26px; flex: 1; display: flex; flex-direction: column; }
+.recurso-desc { font-size: 13px; color: var(--dim); flex: 1; line-height: 1.7; margin-bottom: 20px; }
+.btn-dl {
+  width: 100%; padding: 11px; background: var(--teal-glow);
+  border: 1px solid var(--teal-border); border-radius: var(--radius-sm);
+  color: var(--teal); font-family: var(--font-sans); font-weight: 500;
+  font-size: 13px; letter-spacing: 0.06em; cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-dl:hover { background: rgba(61,216,196,0.2); border-color: var(--teal); }
+
+/* ═══════════════════════════════════════════
+   SOCIAL PROOF / TESTIMONIALES
+════════════════════════════════════════════ */
+#testimonios { position: relative; z-index: 1; background: linear-gradient(180deg, transparent, rgba(9,26,19,0.4), transparent); }
+.testimonios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.testimonial-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-lg); padding: 28px 26px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.testimonial-card:hover { border-color: var(--teal-border2); transform: translateY(-3px); }
+.testimonial-stars { color: var(--teal); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+.testimonial-text { font-family: var(--font-serif); font-style: italic; font-size: 16px; color: var(--white); line-height: 1.7; margin-bottom: 20px; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--bg3); border: 1px solid var(--teal-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-weight: 700; font-size: 16px; color: var(--teal);
+}
+.testimonial-name { font-size: 14px; font-weight: 500; }
+.testimonial-meta { font-size: 11px; color: var(--dim2); margin-top: 2px; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+════════════════════════════════════════════ */
+#faq { position: relative; z-index: 1; }
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item {
+  border-bottom: 1px solid var(--teal-border);
+  overflow: hidden;
+}
+.faq-item:first-child { border-top: 1px solid var(--teal-border); }
+.faq-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 20px 0; background: none; border: none; cursor: pointer;
+  text-align: left; color: var(--white); transition: color 0.2s;
+}
+.faq-btn:hover { color: var(--teal); }
+.faq-question { font-size: 16px; font-weight: 500; line-height: 1.5; }
+.faq-chevron {
+  width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%;
+  border: 1px solid var(--teal-border); display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--teal); transition: transform 0.3s, background 0.2s;
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--teal-glow); }
+.faq-answer { font-size: 14.5px; color: var(--dim); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+.faq-answer-inner { padding-bottom: 20px; }
+.faq-item.open .faq-answer { max-height: 300px; }
+
+/* ═══════════════════════════════════════════
+   NEWSLETTER
+════════════════════════════════════════════ */
+#newsletter { position: relative; z-index: 1; }
+.nl-card {
+  background: linear-gradient(150deg, #071510 0%, #0d2a1c 55%, #0a1e16 100%);
+  border: 1px solid var(--teal-border); border-radius: var(--radius-xl);
+  padding: 72px; text-align: center; position: relative; overflow: hidden;
+}
+.nl-card::before {
+  content: '';
+  position: absolute; top: -45%; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(61,216,196,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.nl-card h2 { margin-bottom: 14px; }
+.nl-card .lead { max-width: 420px; margin: 0 auto 38px; }
+.nl-form { display: flex; gap: 12px; max-width: 460px; margin: 0 auto; }
+.nl-input {
+  flex: 1; background: rgba(61,216,196,0.05); border: 1.5px solid var(--teal-border);
+  border-radius: var(--radius-sm); padding: 13px 18px;
+  color: var(--white); font-family: var(--font-sans); font-size: 14px;
+  outline: none; transition: border-color 0.2s;
+}
+.nl-input:focus { border-color: var(--teal); }
+.nl-input::placeholder { color: var(--dim2); }
+.nl-note { font-size: 11px; color: var(--dim2); margin-top: 12px; }
+
+/* ═══════════════════════════════════════════
+   CONTACTO
+════════════════════════════════════════════ */
+#contacto { position: relative; z-index: 1; }
+.contacto-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 68px; align-items: start; }
+.contacto-info h2 { margin-bottom: 18px; }
+.contacto-info p { font-size: 16px; color: var(--dim); margin-bottom: 32px; line-height: 1.8; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-md); padding: 14px 20px;
+  text-decoration: none; color: var(--white);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.contact-link:hover { border-color: var(--teal); background: var(--teal-glow); transform: translateX(4px); }
+.contact-link-icon {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; color: var(--teal);
+}
+.contact-link-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim2); margin-bottom: 2px; }
+.contact-link-val { font-size: 14px; font-weight: 400; }
+
+/* Form card */
+.form-card {
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-xl); padding: 44px;
+  box-shadow: var(--shadow-card);
+}
+.form-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 28px; }
+.form-g { margin-bottom: 18px; }
+.form-l { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim2); margin-bottom: 8px; }
+.form-i, .form-s, .form-t {
+  width: 100%; background: rgba(61,216,196,0.04); border: 1.5px solid var(--teal-border);
+  border-radius: var(--radius-sm); padding: 12px 16px;
+  color: var(--white); font-family: var(--font-sans); font-size: 14px;
+  outline: none; transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-i:focus, .form-s:focus, .form-t:focus { border-color: var(--teal); background: rgba(61,216,196,0.07); }
+.form-i::placeholder, .form-t::placeholder { color: var(--dim2); }
+.form-s { cursor: pointer; }
+.form-s option { background: var(--bg2); color: var(--white); }
+.form-t { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-btn {
+  width: 100%; padding: 15px; background: var(--teal); color: #041009;
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  letter-spacing: 0.06em; border-radius: var(--radius-sm); border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(61,216,196,0.32);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.form-btn:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,216,196,0.45); }
+.form-btn:active { transform: translateY(0); }
+.form-ok {
+  display: none; padding: 16px; background: rgba(61,216,196,0.1);
+  border: 1px solid rgba(61,216,196,0.3); border-radius: var(--radius-sm);
+  color: var(--teal); text-align: center; font-size: 14px; margin-top: 14px;
+}
+.form-note { font-size: 11px; color: var(--dim2); text-align: center; margin-top: 12px; }
+
+/* ═══════════════════════════════════════════
+   CTA YOUTUBE BANNER
+════════════════════════════════════════════ */
+#suscribir { position: relative; z-index: 1; }
+.yt-cta-card {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 48px; align-items: center;
+  background: linear-gradient(150deg, #130606 0%, #2a0a0a 60%, #130606 100%);
+  border: 1px solid rgba(255,0,0,0.16); border-radius: var(--radius-xl);
+  padding: 60px; position: relative; overflow: hidden;
+}
+.yt-cta-card::before {
+  content: '';
+  position: absolute; top: -30%; right: -5%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,0,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.yt-big-icon {
+  width: 88px; height: 88px; flex-shrink: 0;
+  background: #ff0000; border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 36px rgba(255,0,0,0.42);
+}
+.yt-cta-stats {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+  flex-shrink: 0;
+}
+.yt-stat-big { font-family: var(--font-serif); font-size: 38px; font-weight: 700; color: #ff5555; line-height: 1; }
+.yt-stat-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,100,100,0.6); }
+.yt-cta-middle h2 { color: #fff; margin-bottom: 12px; }
+.yt-cta-middle p { color: rgba(255,255,255,0.6); margin-bottom: 26px; font-size: 16px; max-width: 460px; }
+.yt-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border); padding: 64px 0 40px; }
+.footer-main { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand p { font-size: 13.5px; color: var(--dim); margin: 14px 0 22px; max-width: 240px; line-height: 1.75; }
+.footer-socials { display: flex; gap: 9px; }
+.footer-soc {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  background: var(--faint); border: 1px solid var(--teal-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--dim); font-size: 15px; text-decoration: none;
+  transition: all 0.2s;
+}
+.footer-soc:hover { background: var(--teal-glow); border-color: var(--teal); color: var(--teal); }
+.footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim2); margin-bottom: 18px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-col a { font-size: 14px; color: var(--dim); transition: color 0.2s; }
+.footer-col a:hover { color: var(--teal); }
+.footer-bottom {
+  border-top: 1px solid var(--teal-border); padding-top: 26px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.footer-bottom p { font-size: 12px; color: var(--dim2); }
+.footer-bottom a { color: var(--teal); }
+.footer-trust { display: flex; align-items: center; gap: 12px; }
+.footer-trust-item { font-size: 11px; color: var(--dim2); display: flex; align-items: center; gap: 5px; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-grid { gap: 48px; }
+  .sobre-grid { gap: 48px; }
+  .yt-cta-card { grid-template-columns: 1fr; gap: 32px; }
+  .yt-cta-stats { flex-direction: row; align-items: center; }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; }
+  .hero-float-card { display: none; }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .autor-card { position: static; }
+  .contacto-grid { grid-template-columns: 1fr; gap: 44px; }
+  .recursos-grid { grid-template-columns: repeat(2,1fr); }
+  .series-grid { grid-template-columns: 1fr 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .nav-center { display: none; }
+  .nav-yt-btn { display: none; }
+  .nav-burger { display: flex; }
+  .video-preview-grid { grid-template-columns: 1fr 1fr; }
+  .trust-inner { gap: 24px; }
+  .trust-divider { display: none; }
+  .yt-cta-card { padding: 40px 28px; }
+}
+@media (max-width: 600px) {
+  .recursos-grid { grid-template-columns: 1fr; }
+  .series-grid { grid-template-columns: 1fr; }
+  .areas-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr; }
+  .nl-form { flex-direction: column; }
+  .hero-stats { flex-direction: column; gap: 20px; }
+  .hero-stat { border-right: none; border-bottom: 1px solid var(--teal-border); padding: 0 0 20px 0; }
+  .hero-stat:last-child { border-bottom: none; padding: 20px 0 0; }
+  .video-preview-grid { grid-template-columns: 1fr; }
+  .canal-top { flex-direction: column; align-items: flex-start; }
+  .nl-card { padding: 44px 24px; }
+  .form-card { padding: 30px 22px; }
+  .section-space { padding: 72px 0; }
+  .yt-cta-card { padding: 32px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- CANVAS PARTICLES -->
+<canvas id="canvas"></canvas>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">ET</div>
+      <span class="nav-logo-text">EdTrainer <span>TV</span></span>
+    </a>
+    <ul class="nav-center">
+      <li><a href="#canal">Canal</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#testimonios">Comunidad</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="nav-yt-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+        Suscribirse
+      </a>
+      <button class="nav-burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#canal">Canal</a>
+  <a href="#sobre">Sobre mí</a>
+  <a href="#recursos">Recursos</a>
+  <a href="#testimonios">Comunidad</a>
+  <a href="#contacto">Contacto</a>
+  <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="nav-mobile-yt">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+    Ver el canal en YouTube
+  </a>
+</div>
+
+<!-- ════════════ HERO ════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="fade-in">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span class="hero-badge-text">Google Certified Trainer &amp; Innovator · Madrid</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="part1">EdTrainer</span>
+          <span class="part2">TV</span>
+        </h1>
+        <p class="hero-tagline">IA, tecnología y criterio</p>
+        <div class="hero-actions">
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            Ver el canal
+          </a>
+          <a href="#recursos" class="btn btn-ghost btn-lg">Recursos gratuitos</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-num" data-target="286">0</span><span class="stat-num">K</span>
+            <span class="stat-label">Suscriptores</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num" data-target="252">0</span><span class="stat-num"></span>
+            <span class="stat-label">Vídeos</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num" data-target="6">0</span><span class="stat-num"></span>
+            <span class="stat-label">Años en YouTube</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-in fade-in--delay-2">
+        <div class="hero-banner-wrap">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" alt="EdTrainer Setup" class="hero-banner-img">
+          <div class="hero-banner-overlay"></div>
+        </div>
+        <div class="hero-float-card">
+          <div class="float-card-icon">🚀</div>
+          <div>
+            <div class="float-card-num">+140K</div>
+            <div class="float-card-label">Vistas mensuales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TRUST BAR ════════════ -->
+<section id="trust">
+  <div class="container--narrow">
+    <div class="trust-inner fade-in">
+      <span class="trust-label">Con la confianza de</span>
+      <div class="trust-item"><span class="trust-item-icon">🎓</span> Google for Education</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="trust-item-icon">🏫</span> +200 Colegios</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><span class="trust-item-icon">⭐</span> 4.9/5 Reseñas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CANAL / YOUTUBE ════════════ -->
+<section id="canal" class="section-space">
+  <div class="container">
+    <div class="canal-top fade-in">
+      <div class="section-header">
+        <span class="eyebrow"><div class="eyebrow-dot"></div>YouTube</span>
+        <h2>IA, Tecnología y <em>Criterio</em></h2>
+        <p class="lead">Explora cientos de tutoriales, guías y análisis semanales sobre inteligencia artificial y educación.</p>
+      </div>
+    </div>
+    
+    <!-- Elfsight YouTube Widget Zone -->
+    <div class="elfsight-zone fade-in fade-in--delay-1">
+      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      <div class="elfsight-app-7d7221ee-c89e-4e4b-9721-a4773c2eeaa8"></div>
+    </div>
+    
+    <div class="canal-footer fade-in fade-in--delay-2">
+      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt btn-lg">Visitar canal en YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SOBRE EL AUTOR ════════════ -->
+<section id="sobre" class="section-space">
+  <div class="container">
+    <div class="sobre-grid">
+      
+      <!-- Sticky Card -->
+      <div class="fade-in">
+        <div class="autor-card">
+          <div class="autor-card-top">
+            <div class="autor-photo">
+              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img">
+            </div>
+            <h3 class="autor-name">Luis Alfonso Ruiz</h3>
+            <div class="autor-role">EdTrainer TV</div>
+            <div class="autor-badges">
+              <span class="autor-badge">Google Innovator</span>
+              <span class="autor-badge">Google Trainer</span>
+            </div>
+          </div>
+          <div class="autor-card-body">
+            <ul class="cred-list">
+              <li class="cred-item"><div class="cred-icon">🎓</div> Formador de formadores especialista en IA y EdTech.</li>
+              <li class="cred-item"><div class="cred-icon">🚀</div> 286K Suscriptores y +140K vistas mensuales en YouTube.</li>
+              <li class="cred-item"><div class="cred-icon">💡</div> Creador de la comunidad EdTrainer & IB Nexus.</li>
+            </ul>
+          </div>
+          <div class="autor-card-footer">
+            <div class="social-row">
+              <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="social-btn">YouTube</a>
+              <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" class="social-btn">LinkedIn</a>
+              <a href="https://x.com/LuisAlfonso_R" target="_blank" class="social-btn">X (Twitter)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="sobre-content fade-in fade-in--delay-1">
+        <span class="eyebrow"><div class="eyebrow-dot"></div>Trayectoria</span>
+        <h2>Experiencia <em>en las aulas</em></h2>
+        <p>Mi misión es acompañar a los educadores en la transformación digital. No se trata de utilizar herramientas porque sí, sino de integrar la tecnología de forma pedagógica, ética y con criterio.</p>
+        <p>A través de EdTrainer TV, exploro cómo la Inteligencia Artificial y tecnologías como Google Workspace pueden liberar tiempo docente, democratizar el aprendizaje y potenciar la creatividad en el aula.</p>
+        
+        <div class="areas-grid">
+          <div class="area-card">
+            <div class="area-icon">🤖</div>
+            <h4 class="area-title">IA en Educación</h4>
+            <div class="area-desc">Prompt Engineering, integraciones en el aula y guías éticas de uso para docentes y alumnos.</div>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">☁️</div>
+            <h4 class="area-title">Google Workspace</h4>
+            <div class="area-desc">Optimización, trucos avanzados y metodologías utilizando el ecosistema de Google.</div>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">📊</div>
+            <h4 class="area-title">Productividad docente</h4>
+            <div class="area-desc">Sistemas, automatizaciones y herramientas para recuperar el tiempo y enfocarse en enseñar.</div>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">🎤</div>
+            <h4 class="area-title">Keynotes & Talleres</h4>
+            <div class="area-desc">Ponencias inspiradoras y formaciones in-company para instituciones educativas.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ RECURSOS ════════════ -->
+<!-- ════════════ CURSOS Y SERIES ════════════ -->
+<section id="series" class="section-space">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="eyebrow"><div class="eyebrow-dot"></div>Aprendizaje estructurado</span>
+      <h2>Cursos y series que <em>no te puedes perder</em></h2>
+      <p class="lead">Si quieres ir más allá de los vídeos individuales, aquí tienes una selección de cursos y series especialmente recomendados para aprender con profundidad, seguir un itinerario claro y descubrir algunos de los contenidos más valiosos del canal.</p>
+    </div>
+
+    <div class="series-grid">
+      <!-- Gemini -->
+      <article class="series-card fade-in">
+        <div class="series-img-wrap">
+          <div class="series-label">Curso</div>
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="Gemini en Educación" class="series-thumb">
+        </div>
+        <div class="series-body">
+          <h3 class="series-title">100+ formas de usar Gemini en Educación</h3>
+          <p class="series-desc">Una colección imprescindible para descubrir aplicaciones prácticas, creativas y pedagógicas de Gemini en el ámbito educativo. Ideal para docentes, formadores y personas interesadas en aprovechar la IA con sentido.</p>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm4nulAOiI8mmiUQKPBd81ud" target="_blank" class="btn-series">Explorar curso</a>
+        </div>
+      </article>
+
+      <!-- Bienestar -->
+      <article class="series-card fade-in fade-in--delay-1">
+        <div class="series-img-wrap">
+          <div class="series-label">Curso</div>
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Bienestar Emocional" class="series-thumb">
+        </div>
+        <div class="series-body">
+          <h3 class="series-title">Gramática del Bienestar Emocional</h3>
+          <p class="series-desc">Un recorrido diferente y necesario para reflexionar sobre el bienestar emocional, el lenguaje interior y el desarrollo personal desde una mirada formativa, cercana y profunda.</p>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm5j7ph7Yk0z58OpZl_2_Rpa" target="_blank" class="btn-series">Explorar curso</a>
+        </div>
+      </article>
+
+      <!-- Antigravity -->
+      <article class="series-card fade-in fade-in--delay-2">
+        <div class="series-img-wrap">
+          <div class="series-label">Serie</div>
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Google Antigravity" class="series-thumb">
+        </div>
+        <div class="series-body">
+          <h3 class="series-title">Google Antigravity</h3>
+          <p class="series-desc">Una serie clave para entender el potencial de Google Antigravity, sus aplicaciones y sus posibilidades en el trabajo con agentes, automatización e inteligencia artificial.</p>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm7-zuYfMuK-CTSXXJxXm_lH" target="_blank" class="btn-series">Ver serie</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="series-footer fade-in">
+      <a href="https://www.youtube.com/@EdTrainerTv/playlists" target="_blank" class="btn btn-ghost">
+        Ver todas las playlists
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 6px;"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="recursos" class="section-space">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="eyebrow"><div class="eyebrow-dot"></div>Descargas</span>
+      <h2>Recursos <em>Gratuitos</em></h2>
+      <p class="lead">Materiales prácticos diseñados para aplicar desde hoy en tu aula.</p>
+    </div>
+
+    <div class="recursos-grid">
+      <div class="recurso-card fade-in">
+        <div class="recurso-top">
+          <span class="recurso-emoji">📚</span>
+          <div class="recurso-type">Guía Prompting</div>
+          <h3 class="recurso-title">100 Prompts Educativos para Profesores</h3>
+        </div>
+        <div class="recurso-body">
+          <p class="recurso-desc">Descubre cómo comunicarte eficazmente con ChatGPT y Claude para generar rúbricas, programaciones y más.</p>
+          <button class="btn-dl">Descargar PDF</button>
+        </div>
+      </div>
+
+      <div class="recurso-card fade-in fade-in--delay-1">
+        <div class="recurso-top">
+          <span class="recurso-emoji">⚙️</span>
+          <div class="recurso-type">Plantilla Notion</div>
+          <h3 class="recurso-title">Dashboard del Profesor Productivo</h3>
+        </div>
+        <div class="recurso-body">
+          <p class="recurso-desc">Organiza tus clases, tareas, alumnos y recursos en un solo lugar con esta plantilla lista para usar.</p>
+          <button class="btn-dl">Obtener plantilla</button>
+        </div>
+      </div>
+
+      <div class="recurso-card fade-in fade-in--delay-2">
+        <div class="recurso-top">
+          <span class="recurso-emoji">✨</span>
+          <div class="recurso-type">Guía PDF</div>
+          <h3 class="recurso-title">Guía del examen Gemini Educator Certificado</h3>
+        </div>
+        <div class="recurso-body">
+          <p class="recurso-desc">Prepara tu certificación oficial con esta guía detallada sobre el uso de la IA de Google en el entorno educativo.</p>
+          <a href="Guia-del-Examen-Educador-Certificado.pdf" download="Guia-Gemini-Educator-EdTrainer.pdf" class="btn-dl" style="text-align: center; text-decoration: none; display: block;">Descargar Guía</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TESTIMONIOS ════════════ -->
+<section id="testimonios" class="section-space--sm">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="eyebrow"><div class="eyebrow-dot"></div>Comunidad</span>
+      <h2>Lo que dicen <em>los docentes</em></h2>
+    </div>
+
+    <div class="testimonios-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Gracias a los tutoriales de Luis Alfonso he conseguido integrar herramientas de IA en el desarrollo de mis unidades didácticas, ahorrando horas cada semana."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">María G.</div>
+            <div class="testimonial-meta">Profesora de Secundaria</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in--delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"EdTrainer TV es mi principal fuente de actualización docente. El rigor y el criterio con el que analiza cada herramienta son imprescindibles hoy en día."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">C</div>
+          <div>
+            <div class="testimonial-name">Carlos P.</div>
+            <div class="testimonial-meta">Coordinador TIC</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in--delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"La formación in-company que recibimos sobre Google Workspace revolucionó nuestro colegio. Una metodología impecable y 100% aplicable."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">E</div>
+          <div>
+            <div class="testimonial-name">Elena R.</div>
+            <div class="testimonial-meta">Directora Educativa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FAQ ════════════ -->
+<section id="faq" class="section-space">
+  <div class="container--narrow">
+    <div class="section-header fade-in">
+      <span class="eyebrow"><div class="eyebrow-dot"></div>Dudas comunes</span>
+      <h2>Preguntas <em>Frecuentes</em></h2>
+    </div>
+
+    <div class="faq-list fade-in fade-in--delay-1">
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿A quién está dirigido el canal de EdTrainer TV?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Principalmente a docentes, equipos directivos, coordinadores de innovación y cualquier profesional de la educación que busque integrar la tecnología de forma efectiva en su día a día.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿Ofreces formación personalizada para centros educativos?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sí, realizo formaciones a medida, tanto presenciales como online. Desde el inicio en Google Workspace hasta la integración metodológica de la IA. ¡Escríbeme!
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿Qué es la comunidad IB Nexus?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Es un proyecto paralelo premium destinado a docentes del Bachillerato Internacional (IB) donde ofrecemos herramientas y recursos altamente especializados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ NEWSLETTER ════════════ -->
+<section id="newsletter" class="section-space">
+  <div class="container--narrow">
+    <div class="nl-card fade-in">
+      <h2>Sube de nivel tu <em>TechDocente</em></h2>
+      <p class="lead">Únete a la newsletter privada donde comparto reflexiones, prompts y recursos exclusivos 1 vez a la semana.</p>
+      <form class="nl-form" onsubmit="event.preventDefault(); document.getElementById('nl-ok').style.display='block';">
+        <input type="email" class="nl-input" placeholder="Tu mejor email..." required>
+        <button type="submit" class="btn btn-teal">
+          Apuntarme
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+        </button>
+      </form>
+      <div class="form-ok" id="nl-ok">¡Genial! Revisa tu bandeja de entrada para confirmar la suscripción.</div>
+      <div class="nl-note">Sin spam, solo valor. Prometido.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACTO ════════════ -->
+<section id="contacto" class="section-space">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info fade-in">
+        <span class="eyebrow"><div class="eyebrow-dot"></div>Hablemos</span>
+        <h2>¿Trabajamos <em>Juntos</em>?</h2>
+        <p>Si tienes un proyecto educativo, necesitas formación para tu claustro o quieres proponer una colaboración, me encantará escucharte.</p>
+        <div class="contact-links">
+          <a href="mailto:hola@edtrainer.tv" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div class="contact-link-lbl">Email Directo</div>
+              <div class="contact-link-val">hola@edtrainer.tv</div>
+            </div>
+          </a>
+          <a href="#" class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            <div>
+              <div class="contact-link-lbl">Ubicación</div>
+              <div class="contact-link-val">Madrid, España (y online)</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card fade-in fade-in--delay-1">
+        <h3 class="form-title">Envía tu propuesta</h3>
+        <form onsubmit="event.preventDefault(); document.getElementById('form-contacto-ok').style.display='block';">
+          <div class="form-row">
+            <div class="form-g">
+              <label class="form-l">Nombre</label>
+              <input type="text" class="form-i" placeholder="Ej: Laura Gómez" required>
+            </div>
+            <div class="form-g">
+              <label class="form-l">Institución / Colegio</label>
+              <input type="text" class="form-i" placeholder="Ej: Colegio San José">
+            </div>
+          </div>
+          <div class="form-g">
+            <label class="form-l">Email Profesional</label>
+            <input type="email" class="form-i" placeholder="laura@colegio.edu" required>
+          </div>
+          <div class="form-g">
+            <label class="form-l">Motivo de contacto</label>
+            <select class="form-s">
+              <option>Formación in-company (Claustro)</option>
+              <option>Ponencia / Keynote</option>
+              <option>Consultoría estratégica</option>
+              <option>Otras colaboraciones</option>
+            </select>
+          </div>
+          <div class="form-g">
+            <label class="form-l">Tu Mensaje</label>
+            <textarea class="form-t" placeholder="Cuéntame brevemente sobre tu proyecto o necesidades formativas..." required></textarea>
+          </div>
+          <button type="submit" class="form-btn">
+            Enviar Mensaje
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
+          </button>
+        </form>
+        <div class="form-ok" id="form-contacto-ok">¡Mensaje enviado con éxito! Te responderé en 24-48 horas hábiles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SUSCRIBIR BIG CTA ════════════ -->
+<section id="suscribir" class="section-space--sm">
+  <div class="container">
+    <div class="yt-cta-card fade-in">
+      <div class="yt-big-icon">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="#fff"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+      </div>
+      <div class="yt-cta-middle">
+        <h2>No te pierdas los nuevos vídeos</h2>
+        <p>Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.</p>
+        <div class="yt-cta-btns">
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt">Suscribirme al canal</a>
+          <a href="#recursos" class="btn btn-ghost">Ver vídeos populares</a>
+        </div>
+      </div>
+      <div class="yt-cta-stats">
+        <div class="yt-stat-big">286K</div>
+        <div class="yt-stat-label">Suscriptores actuales</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark">ET</div>
+          <span class="nav-logo-text">EdTrainer <span>TV</span></span>
+        </a>
+        <p>Acompañando a docentes e instituciones educativas en la integración ética, estratégica y eficaz de la tecnología y la Inteligencia Artificial.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="footer-soc">YT</a>
+          <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" class="footer-soc">IN</a>
+          <a href="https://x.com/LuisAlfonso_R" target="_blank" class="footer-soc">X</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#canal">Canal YouTube</a></li>
+          <li><a href="#sobre">Sobre mí</a></li>
+          <li><a href="#recursos">Recursos gratuitos</a></li>
+          <li><a href="#testimonios">Comunidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="#">IB Nexus</a></li>
+          <li><a href="#">Comunidad EdTrainer</a></li>
+          <li><a href="#">Formación In-Company</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@edtrainer.tv">hola@edtrainer.tv</a></li>
+          <li><a href="#contacto">Formulario web</a></li>
+          <li>Madrid, España</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.</p>
+      <div class="footer-trust">
+        <span class="footer-trust-item">🔒 Sitio Seguro</span>
+        <a href="#">Aviso Legal</a>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script>
+  // Setup numbers
+  const targets = document.querySelectorAll('.stat-num[data-target]');
+  
+  // Intersection Observer for scroll animations & numbers
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // If it's the hero stats container, animate numbers once
+        if (entry.target.classList.contains('hero-stats')) {
+          targets.forEach(t => {
+            if(!t.classList.contains('counted')) {
+              t.classList.add('counted');
+              let target = +t.getAttribute('data-target');
+              let current = 0;
+              let inc = target / 40;
+              let timer = setInterval(() => {
+                current += inc;
+                if(current >= target){
+                  clearInterval(timer);
+                  t.innerText = target;
+                } else {
+                  t.innerText = Math.ceil(current);
+                }
+              }, 40);
+            }
+          });
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in, .hero-stats').forEach(el => observer.observe(el));
+
+  // Navbar sticky / Blur
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Scroll Progress Bar
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + "%";
+  });
+
+  // Mobile Menu
+  const burger = document.getElementById('burger');
+  const navMobile = document.getElementById('nav-mobile');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+
+  navMobile.addEventListener('click', (e) => {
+    if(e.target.tagName === 'A') {
+      burger.classList.remove('open');
+      navMobile.classList.remove('open');
+    }
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  // Simple Canvas Particles Base
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+
+  function init() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    particles = [];
+    let count = window.innerWidth < 768 ? 20 : 40;
+    for(let i=0; i<count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,width,height);
+    ctx.fillStyle = 'rgba(61,216,196,0.3)';
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > width) p.vx *= -1;
+      if(p.y < 0 || p.y > height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', init);
+  init();
+  draw();
+</script>
+
+</body>
+</html>
+
