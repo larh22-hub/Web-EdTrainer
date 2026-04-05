@@ -6,6 +6,13 @@
 <meta name="description" content="EdTrainer TV — IA, tecnología y criterio. Canal de YouTube de referencia en tecnología educativa con +286.000 suscriptores. Luis Alfonso Ruiz, Google Certified Trainer & Innovator.">
 <meta name="keywords" content="EdTrainer TV, tecnología educativa, Google Workspace, inteligencia artificial educación, formación docentes, Luis Alfonso Ruiz">
 <meta property="og:title" content="EdTrainer TV — IA, tecnología y criterio">
+<meta property="og:image" content="https://www.edtrainer.com/perfil.jpg">
+<meta property="og:url" content="https://www.edtrainer.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EdTrainer TV — IA, tecnología y criterio">
+<meta name="twitter:description" content="+286.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
+<meta name="twitter:image" content="https://www.edtrainer.com/perfil.jpg">
 <meta property="og:description" content="+286.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
 <title>EdTrainer TV — IA, tecnología y criterio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,10 +71,10 @@ button { font-family: var(--font-sans); }
 ════════════════════════════════════════════ */
 #progress-bar {
   position: fixed; top: 0; left: 0; z-index: 200;
-  height: 2.5px; width: 0%;
+  height: 3px; width: 0%;
   background: linear-gradient(90deg, var(--teal3), var(--teal), var(--teal2));
   transition: width 0.1s linear;
-  box-shadow: 0 0 12px var(--teal);
+  box-shadow: 0 0 10px rgba(61,216,196,0.8), 0 0 20px rgba(61,216,196,0.4);
 }
 
 /* ═══════════════════════════════════════════
@@ -253,7 +260,11 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   transition: color 0.2s, background 0.2s;
 }
 .nav-center a:hover { color: var(--teal); background: var(--teal-glow); }
-.nav-center a.active { color: var(--teal); }
+.nav-center a.active {
+  color: var(--teal);
+  background: var(--teal-glow);
+  border-color: var(--teal-border);
+}
 
 .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-yt-btn {
@@ -330,7 +341,13 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   font-size: clamp(19px, 2.5vw, 25px); color: var(--dim);
   margin: 20px 0 38px; letter-spacing: 0.015em;
 }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn { width: 100%; justify-content: center; text-align: center; }
+  .hero-actions .btn-teal { order: 1; }
+  .hero-actions .btn-ghost { order: 2; }
+}
 
 /* Stats strip */
 .hero-stats {
@@ -952,6 +969,20 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   .asesoria-perfiles { grid-template-columns: 1fr; }
   .asesoria-cta-box { padding: 44px 24px; }
 }
+
+/* Back to top */
+#back-top {
+  position: fixed; bottom: 28px; right: 28px; z-index: 150;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  color: var(--teal); font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s, background 0.2s, box-shadow 0.2s;
+  transform: translateY(12px);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#back-top:hover { background: var(--teal); color: var(--bg); box-shadow: 0 4px 20px rgba(61,216,196,0.4); }
 </style>
 </head>
 <body>
@@ -1039,7 +1070,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       </div>
       <div class="hero-visual fade-in fade-in--delay-2">
         <div class="hero-banner-wrap">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" alt="EdTrainer Setup" class="hero-banner-img">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" alt="Espacio de trabajo de Luis Alfonso Ruiz, creador de EdTrainer TV" class="hero-banner-img">
           <div class="hero-banner-overlay"></div>
         </div>
         <div class="hero-float-card">
@@ -1177,7 +1208,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="100_Formas_de_Usar_Gemini.png" alt="Gemini en Educación" class="series-thumb">
+          <img src="100_Formas_de_Usar_Gemini.png" alt="Portada del curso 100+ formas de usar Gemini en Educación de EdTrainer TV" class="series-thumb">
         </div>
         <div class="series-body">
           <h3 class="series-title">100+ formas de usar Gemini en Educación</h3>
@@ -1190,7 +1221,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-1" style="transition-delay:0.12s">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="Bienestar_emocional.png" alt="Bienestar Emocional" class="series-thumb">
+          <img src="Bienestar_emocional.png" alt="Portada del curso Gramática del Bienestar Emocional de EdTrainer TV" class="series-thumb">
         </div>
         <div class="series-body">
           <h3 class="series-title">Gramática del Bienestar Emocional</h3>
@@ -1203,7 +1234,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-2" style="transition-delay:0.24s">
         <div class="series-img-wrap">
           <div class="series-label">Serie</div>
-          <img src="Google_Antigravity.png" alt="Google Antigravity" class="series-thumb">
+          <img src="Google_Antigravity.png" alt="Portada de la serie Google Antigravity de EdTrainer TV" class="series-thumb">
         </div>
         <div class="series-body">
           <h3 class="series-title">Google Antigravity</h3>
@@ -1554,12 +1585,14 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
             <label class="form-l">Tu Mensaje</label>
             <textarea name="mensaje" class="form-t" placeholder="Cuéntame brevemente sobre tu proyecto o necesidades formativas..." required></textarea>
           </div>
-          <button type="submit" class="form-btn">
-            Enviar Mensaje
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
+          <button type="submit" class="form-btn" id="form-submit-btn">
+            <span id="form-btn-text">Enviar Mensaje</span>
+            <span id="form-btn-loading" style="display:none">Enviando…</span>
+            <svg id="form-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
           </button>
         </form>
         <div class="form-ok" id="form-contacto-ok">¡Mensaje enviado con éxito! Te responderé en 24-48 horas hábiles.</div>
+        <div class="form-ok" id="form-contacto-error" style="display:none;background:rgba(255,60,60,0.08);border-color:rgba(255,60,60,0.3);color:#ff7777;">Algo ha fallado. Escríbeme directamente a <a href="mailto:edtrainertv@gmail.com" style="color:#ff7777">edtrainertv@gmail.com</a></div>
       </div>
     </div>
   </div>
@@ -1619,8 +1652,8 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <div class="footer-col">
         <h4>Proyectos</h4>
         <ul>
-          <li><a href="#">Comunidad EdTrainer</a></li>
-          <li><a href="#">Formación In-Company</a></li>
+          <li><a href="#testimonios">Comunidad EdTrainer</a></li>
+          <li><a href="#asesoramiento">Formación In-Company</a></li>
         </ul>
       </div>
 
@@ -1685,9 +1718,35 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 
   // Navbar sticky / Blur
   const nav = document.getElementById('navbar');
+  const backTop = document.getElementById('back-top');
+  const navLinks = document.querySelectorAll('.nav-center a[href^="#"]');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
   window.addEventListener('scroll', () => {
-    if(window.scrollY > 50) nav.classList.add('scrolled');
+    const sy = window.scrollY;
+
+    // Navbar scroll style
+    if(sy > 50) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+
+    // Back to top visibility
+    if(sy > 400) backTop.classList.add('visible');
+    else backTop.classList.remove('visible');
+
+    // Active nav link
+    let current = '';
+    sections.forEach(sec => {
+      if(sy >= sec.offsetTop - 120) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+
+    // Close mobile menu on scroll
+    if(sy > 80 && navMobile.classList.contains('open')) {
+      burger.classList.remove('open');
+      navMobile.classList.remove('open');
+    }
   });
 
   // Scroll Progress Bar
@@ -1810,17 +1869,40 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   async function handleFormSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      form.reset();
-      document.getElementById('form-contacto-ok').style.display = 'block';
+    const btn = document.getElementById('form-submit-btn');
+    const btnText = document.getElementById('form-btn-text');
+    const btnLoading = document.getElementById('form-btn-loading');
+    const btnIcon = document.getElementById('form-btn-icon');
+
+    // Loading state
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    btnIcon.style.display = 'none';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.reset();
+        document.getElementById('form-contacto-ok').style.display = 'block';
+        document.getElementById('form-contacto-error').style.display = 'none';
+      } else {
+        document.getElementById('form-contacto-error').style.display = 'block';
+      }
+    } catch(err) {
+      document.getElementById('form-contacto-error').style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      btnIcon.style.display = 'inline';
     }
   }
 </script>
+<button id="back-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>

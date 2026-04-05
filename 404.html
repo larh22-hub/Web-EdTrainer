@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada — EdTrainer TV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060d10; --teal: #3dd8c4; --teal2: #61e3d3;
+    --teal-glow: rgba(61,216,196,0.13); --teal-border: rgba(61,216,196,0.2);
+    --white: #eef5f3; --dim: rgba(238,245,243,0.62);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg); color: var(--white);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 100vh; text-align: center; padding: 24px;
+    position: relative; overflow: hidden;
+  }
+  canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 0.5;
+  }
+  .content {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    max-width: 500px;
+  }
+  .code {
+    font-family: var(--font-serif); font-size: clamp(80px, 18vw, 140px);
+    font-weight: 700; line-height: 1; color: var(--teal);
+    text-shadow: 0 0 60px rgba(61,216,196,0.25);
+    animation: pulse-code 4s ease-in-out infinite;
+  }
+  @keyframes pulse-code {
+    0%,100% { text-shadow: 0 0 40px rgba(61,216,196,0.2); }
+    50%      { text-shadow: 0 0 80px rgba(61,216,196,0.45); }
+  }
+  h1 {
+    font-family: var(--font-serif); font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600; line-height: 1.3;
+  }
+  p {
+    font-size: 15px; color: var(--dim); line-height: 1.75; max-width: 380px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border-radius: 8px;
+    font-family: var(--font-sans); font-size: 13.5px;
+    font-weight: 600; letter-spacing: 0.04em;
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+    margin-top: 8px;
+  }
+  .btn-teal {
+    background: var(--teal); color: #041009;
+    box-shadow: 0 4px 24px rgba(61,216,196,0.28);
+  }
+  .btn-teal:hover { background: var(--teal2); transform: translateY(-2px); }
+  .logo {
+    position: fixed; top: 28px; left: 32px; z-index: 2;
+    font-family: var(--font-serif); font-size: 18px; font-weight: 700;
+    color: var(--white); text-decoration: none; letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--teal); }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<a href="/" class="logo">Ed<span>Trainer</span> TV</a>
+
+<div class="content">
+  <div class="code">404</div>
+  <h1>Esta página no existe</h1>
+  <p>Puede que el enlace haya cambiado o que la dirección tenga un error. Vuelve al inicio y sigue explorando.</p>
+  <a href="/" class="btn btn-teal">
+    ← Volver al inicio
+  </a>
+</div>
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let width, height, nodes = [];
+  const TEAL = '61,216,196';
+
+  function init() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    nodes = [];
+    const count = window.innerWidth < 600 ? 25 : 50;
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * width, y: Math.random() * height,
+        r: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+        pulse: Math.random() * Math.PI * 2, pulseSpeed: 0.02 + Math.random() * 0.02
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${TEAL},${(1 - dist/150) * 0.15})`;
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      n.pulse += n.pulseSpeed;
+      const glow = 0.4 + Math.sin(n.pulse) * 0.25;
+      const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+      grad.addColorStop(0, `rgba(${TEAL},${glow * 0.4})`);
+      grad.addColorStop(1, `rgba(${TEAL},0)`);
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grad; ctx.fill();
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${TEAL},${glow})`; ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > width) n.vx *= -1;
+      if(n.y < 0 || n.y > height) n.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', init);
+  init(); draw();
+</script>
+</body>
+</html>
