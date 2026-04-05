@@ -845,6 +845,67 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   .section-space { padding: 72px 0; }
   .yt-cta-card { padding: 32px 22px; }
 }
+
+/* ═══════════════════════════════════════════
+   ASESORAMIENTO YOUTUBE
+════════════════════════════════════════════ */
+.asesoria-intro { max-width: 620px; margin: 0 auto; text-align: center; }
+.asesoria-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px;
+}
+.asesoria-card {
+  background: linear-gradient(145deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--teal-border); border-radius: var(--radius-lg);
+  padding: 32px 28px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.asesoria-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--teal);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 18px rgba(61,216,196,0.12);
+}
+.asesoria-card-icon { font-size: 26px; line-height: 1; }
+.asesoria-card-title {
+  font-family: var(--font-serif); font-size: 17px; font-weight: 700;
+  color: var(--white); line-height: 1.3;
+}
+.asesoria-card-desc { font-size: 13.5px; color: var(--dim); line-height: 1.7; flex: 1; }
+.asesoria-perfiles {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 56px;
+}
+.asesoria-perfil {
+  background: var(--teal-glow); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-md); padding: 20px 24px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.asesoria-perfil-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+  flex-shrink: 0; margin-top: 6px; box-shadow: 0 0 8px var(--teal);
+}
+.asesoria-perfil-text { font-size: 14px; color: var(--dim); line-height: 1.6; }
+.asesoria-cta-box {
+  margin-top: 72px; text-align: center;
+  background: linear-gradient(150deg, #071510 0%, #0d2a1c 55%, #0a1e16 100%);
+  border: 1px solid var(--teal-border); border-radius: var(--radius-xl);
+  padding: 64px 48px; position: relative; overflow: hidden;
+}
+.asesoria-cta-box::before {
+  content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(61,216,196,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.asesoria-cta-box h3 {
+  font-family: var(--font-serif); font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700; margin-bottom: 14px; color: var(--white);
+}
+.asesoria-cta-box p { font-size: 15px; color: var(--dim); max-width: 480px; margin: 0 auto 36px; line-height: 1.8; }
+@media (max-width: 900px) { .asesoria-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .asesoria-grid { grid-template-columns: 1fr; }
+  .asesoria-perfiles { grid-template-columns: 1fr; }
+  .asesoria-cta-box { padding: 44px 24px; }
+}
 </style>
 </head>
 <body>
@@ -867,7 +928,8 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#recursos">Recursos</a></li>
       <li><a href="#testimonios">Comunidad</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#asesoramiento">Asesoramiento</a></li>
+            <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-right">
       <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="nav-yt-btn">
@@ -1252,26 +1314,140 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
           </div>
         </div>
       </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿El asesoramiento para YouTube es solo para docentes?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            No. Aunque mi experiencia está muy vinculada a la educación, el asesoramiento para YouTube está abierto a cualquier persona o profesional que quiera crear contenido con criterio. Lo importante no es el sector, sino la voluntad de construir algo útil y bien pensado.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿Puedo pedir ayuda si acabo de empezar en YouTube?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sí, de hecho es uno de los mejores momentos para orientarte. Empezar con una estrategia clara, un enfoque definido y una estructura coherente ahorra mucho tiempo y evita errores que luego cuesta mucho corregir.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿Qué tipo de ayuda concreta puedo pedirte?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Puedo ayudarte con el enfoque general del canal, la propuesta de valor, la estrategia de contenidos, la organización de playlists, la claridad de tus guiones, el posicionamiento y diferenciación, y también con la integración de herramientas digitales e inteligencia artificial en tu flujo de trabajo.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿El asesoramiento es personalizado o sigues una plantilla?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Siempre personalizado. No trabajo con plantillas genéricas. Cada canal tiene sus propias circunstancias, objetivos y punto de partida. Lo que te proponga estará adaptado a tu situación concreta.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">¿También puedes revisar un canal que ya está en marcha?</span>
+          <div class="faq-chevron">↓</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Por supuesto. A veces el mayor valor está en poner orden en lo que ya existe: revisar el enfoque, identificar qué no está funcionando y proponer ajustes concretos. Si llevas tiempo publicando pero sientes que el canal no avanza, podemos analizarlo juntos.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════ NEWSLETTER ════════════ -->
-<section id="newsletter" class="section-space">
-  <div class="container--narrow">
-    <div class="nl-card fade-in">
-      <h2>Sube de nivel tu <em>TechDocente</em></h2>
-      <p class="lead">Únete a la newsletter privada donde comparto reflexiones, prompts y recursos exclusivos 1 vez a la semana.</p>
-      <form class="nl-form" onsubmit="event.preventDefault(); document.getElementById('nl-ok').style.display='block';">
-        <input type="email" class="nl-input" placeholder="Tu mejor email..." required>
-        <button type="submit" class="btn btn-teal">
-          Apuntarme
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
-        </button>
-      </form>
-      <div class="form-ok" id="nl-ok">¡Genial! Revisa tu bandeja de entrada para confirmar la suscripción.</div>
-      <div class="nl-note">Sin spam, solo valor. Prometido.</div>
+
+<!-- ════════════ ASESORAMIENTO YOUTUBE ════════════ -->
+<section id="asesoramiento" class="section-space">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="eyebrow"><div class="eyebrow-dot"></div>Consultoría y Asesoramiento</span>
+      <h2>Tu canal, con <em>criterio</em></h2>
+      <p class="lead asesoria-intro">Si quieres empezar en YouTube o llevas tiempo publicando pero sientes que algo no termina de encajar, puedo ayudarte a construir un canal con enfoque, estructura y propósito real.</p>
     </div>
+
+    <!-- A quién va dirigido -->
+    <div class="asesoria-perfiles fade-in fade-in--delay-1">
+      <div class="asesoria-perfil">
+        <div class="asesoria-perfil-dot"></div>
+        <p class="asesoria-perfil-text"><strong>Empiezas desde cero</strong> y quieres hacerlo bien desde el principio, sin perder el tiempo dando palos de ciego.</p>
+      </div>
+      <div class="asesoria-perfil">
+        <div class="asesoria-perfil-dot"></div>
+        <p class="asesoria-perfil-text"><strong>Ya tienes un canal</strong> pero sientes que no avanza, que le falta foco o que no refleja bien lo que quieres transmitir.</p>
+      </div>
+      <div class="asesoria-perfil">
+        <div class="asesoria-perfil-dot"></div>
+        <p class="asesoria-perfil-text"><strong>Tienes ideas y ganas</strong>, pero te falta orden, criterio y una estrategia que tenga sentido a largo plazo.</p>
+      </div>
+      <div class="asesoria-perfil">
+        <div class="asesoria-perfil-dot"></div>
+        <p class="asesoria-perfil-text"><strong>Quieres mejorar</strong> tu forma de comunicar, tu propuesta de valor, tus guiones o el uso que haces de las herramientas digitales.</p>
+      </div>
+    </div>
+
+    <!-- Áreas de asesoramiento -->
+    <div class="asesoria-grid fade-in fade-in--delay-2">
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">🎯</div>
+        <div class="asesoria-card-title">Enfoque y propuesta del canal</div>
+        <p class="asesoria-card-desc">Definimos juntos de qué va tu canal, a quién le habla y qué lo hace diferente. Sin claridad en esto, lo demás no sostiene.</p>
+      </div>
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">📐</div>
+        <div class="asesoria-card-title">Estrategia de contenidos</div>
+        <p class="asesoria-card-desc">Qué publicar, con qué frecuencia, en qué formato y por qué. Una estrategia que puedas mantener y que tenga coherencia.</p>
+      </div>
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">🗂️</div>
+        <div class="asesoria-card-title">Organización y estructura</div>
+        <p class="asesoria-card-desc">Playlists, series, categorías y arquitectura del canal. Que alguien que llega por primera vez sepa exactamente dónde está y por qué quedarse.</p>
+      </div>
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">✍️</div>
+        <div class="asesoria-card-title">Guiones y claridad del mensaje</div>
+        <p class="asesoria-card-desc">Ayudo a construir guiones más claros, directos y efectivos. Que lo que tienes en la cabeza llegue bien al espectador.</p>
+      </div>
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">🔍</div>
+        <div class="asesoria-card-title">Posicionamiento y diferenciación</div>
+        <p class="asesoria-card-desc">En qué punto del mapa estás, cómo te percibe tu audiencia y qué puedes hacer para ocupar un lugar propio y reconocible.</p>
+      </div>
+      <div class="asesoria-card">
+        <div class="asesoria-card-icon">🤖</div>
+        <div class="asesoria-card-title">Herramientas e inteligencia artificial</div>
+        <p class="asesoria-card-desc">Cómo integrar la IA y las herramientas digitales en tu flujo de trabajo para ahorrar tiempo, mejorar la producción y trabajar con más criterio.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="asesoria-cta-box fade-in">
+      <h3>¿Hablamos sobre tu canal?</h3>
+      <p>Cuéntame en qué punto estás y qué quieres conseguir. Sin compromiso, sin plantillas genéricas. Solo una conversación honesta para ver si puedo ayudarte.</p>
+      <a href="#contacto" class="btn btn-teal">
+        Contactar
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -1325,6 +1501,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
               <option>Ponencia / Keynote</option>
               <option>Consultoría estratégica</option>
               <option>Otras colaboraciones</option>
+              <option>Asesoramiento para YouTube / Canal de contenido</option>
             </select>
           </div>
           <div class="form-g">
