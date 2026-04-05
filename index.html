@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,9 @@
 <meta name="twitter:image" content="https://www.edtrainer.com/perfil.jpg">
 <meta property="og:description" content="+286.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
 <title>EdTrainer TV | Luis Alfonso Ruiz — Formación en IA, Google Workspace y Tecnología Educativa</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23060d10'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='Georgia,serif' fill='%233dd8c4'>ET</text></svg>">
+<meta name="theme-color" content="#060d10">
+<meta name="author" content="Luis Alfonso Ruiz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -55,7 +58,7 @@
    RESET & BASE
 ════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { font-size: 16px; }
 body {
   background: var(--bg);
   color: var(--white);
@@ -219,9 +222,7 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 .fade-in--delay-1 { transition-delay: 0.1s; }
 .fade-in--delay-2 { transition-delay: 0.2s; }
 .fade-in--delay-3 { transition-delay: 0.3s; }
-.fade-in--delay-4 { transition-delay: 0.45s; }
-.fade-in--delay-5 { transition-delay: 0.6s; }
-.fade-in--delay-6 { transition-delay: 0.75s; }
+
 body:not(.js-loaded) .fade-in { opacity: 1; transform: none; }
 
 /* ═══════════════════════════════════════════
@@ -658,6 +659,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   transition: background 0.2s, border-color 0.2s;
 }
 .btn-dl:hover { background: rgba(61,216,196,0.2); border-color: var(--teal); }
+.btn-dl--link { text-align: center; text-decoration: none; display: block; }
 
 /* ═══════════════════════════════════════════
    SOCIAL PROOF / TESTIMONIALES
@@ -985,6 +987,27 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 }
 #back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #back-top:hover { background: var(--teal); color: var(--bg); box-shadow: 0 4px 20px rgba(61,216,196,0.4); }
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  #canvas { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+.skip-link {
+  position: absolute; top: -100px; left: 16px; z-index: 9999;
+  background: var(--teal); color: var(--bg); padding: 10px 20px;
+  border-radius: 0 0 8px 8px; font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
 </style>
 
 <!-- SEO Structured Data -->
@@ -1121,6 +1144,8 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 <!-- CANVAS PARTICLES -->
 <canvas id="canvas"></canvas>
 
+<!-- skip to main -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 <!-- ════════════ NAV ════════════ -->
 <nav id="navbar">
   <div class="container">
@@ -1137,7 +1162,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
             <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-right">
-      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="nav-yt-btn">
+      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="nav-yt-btn">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
         Suscribirse
       </a>
@@ -1154,12 +1179,13 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   <a href="#recursos">Recursos</a>
   <a href="#testimonios">Comunidad</a>
   <a href="#contacto">Contacto</a>
-  <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="nav-mobile-yt">
+  <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="nav-mobile-yt">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
     Ver el canal en YouTube
   </a>
 </div>
 
+<main id="main-content">
 <!-- ════════════ HERO ════════════ -->
 <section id="hero">
   <div class="container">
@@ -1175,7 +1201,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </h1>
         <p class="hero-tagline">IA, tecnología y criterio</p>
         <div class="hero-actions">
-          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt btn-lg">
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="btn btn-yt btn-lg">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
             Ver el canal
           </a>
@@ -1198,7 +1224,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       </div>
       <div class="hero-visual fade-in fade-in--delay-2">
         <div class="hero-banner-wrap">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" alt="Espacio de trabajo de Luis Alfonso Ruiz, creador de EdTrainer TV" class="hero-banner-img">
+          <img src="Hero.avif" alt="Espacio de trabajo de Luis Alfonso Ruiz, creador de EdTrainer TV" class="hero-banner-img" width="1200" height="675" fetchpriority="high">
           <div class="hero-banner-overlay"></div>
         </div>
         <div class="hero-float-card">
@@ -1242,10 +1268,15 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     <div class="elfsight-zone fade-in fade-in--delay-1">
       <script src="https://apps.elfsight.com/p/platform.js" defer></script>
       <div class="elfsight-app-7d7221ee-c89e-4e4b-9721-a4773c2eeaa8"></div>
+      <noscript>
+        <div style="text-align:center;padding:32px 0;">
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="btn btn-yt btn-lg">Ver vídeos en YouTube</a>
+        </div>
+      </noscript>
     </div>
     
     <div class="canal-footer fade-in fade-in--delay-2">
-      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt btn-lg">Visitar canal en YouTube</a>
+      <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="btn btn-yt btn-lg">Visitar canal en YouTube</a>
     </div>
   </div>
 </section>
@@ -1260,7 +1291,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <div class="autor-card">
           <div class="autor-card-top">
             <div class="autor-photo">
-              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img">
+              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <h3 class="autor-name">Luis Alfonso Ruiz</h3>
             <div class="autor-role">EdTrainer TV</div>
@@ -1278,9 +1309,9 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
           </div>
           <div class="autor-card-footer">
             <div class="social-row">
-              <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="social-btn">YouTube</a>
-              <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" class="social-btn">LinkedIn</a>
-              <a href="https://x.com/LuisAlfonso_R" target="_blank" class="social-btn">X (Twitter)</a>
+              <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="social-btn">YouTube</a>
+              <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
+              <a href="https://x.com/LuisAlfonso_R" target="_blank" rel="noopener noreferrer" class="social-btn">X (Twitter)</a>
             </div>
           </div>
         </div>
@@ -1336,12 +1367,12 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="100_Formas_de_Usar_Gemini.png" alt="Portada del curso 100+ formas de usar Gemini en Educación de EdTrainer TV" class="series-thumb">
+          <img src="100_Formas_de_Usar_Gemini.png" alt="Portada del curso 100+ formas de usar Gemini en Educación de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">100+ formas de usar Gemini en Educación</h3>
           <p class="series-desc">Un curso práctico que reúne más de cien ideas, ejemplos y aplicaciones reales de Gemini en el ámbito educativo. Aporta al usuario inspiración, recursos y estrategias concretas para ahorrar tiempo, mejorar la planificación, crear materiales, personalizar el aprendizaje y aprovechar la inteligencia artificial con sentido pedagógico.</p>
-          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm4nulAOiI8mmiUQKPBd81ud" target="_blank" class="btn-series">Explorar curso</a>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm4nulAOiI8mmiUQKPBd81ud" target="_blank" rel="noopener noreferrer" class="btn-series">Explorar curso</a>
         </div>
       </article>
 
@@ -1349,12 +1380,12 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-1" style="transition-delay:0.12s">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="Bienestar_emocional.png" alt="Portada del curso Gramática del Bienestar Emocional de EdTrainer TV" class="series-thumb">
+          <img src="Bienestar_emocional.png" alt="Portada del curso Gramática del Bienestar Emocional de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">Gramática del Bienestar Emocional</h3>
           <p class="series-desc">Un curso centrado en la salud mental y el bienestar emocional de adolescentes y jóvenes en su relación con la tecnología. Aporta claves para comprender cómo influyen las pantallas, las redes, la sobreexposición digital o la conexión permanente en el estado emocional, y ofrece una mirada educativa y práctica para fomentar un uso más consciente, equilibrado y saludable de la tecnología.</p>
-          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm5j7ph7Yk0z58OpZl_2_Rpa" target="_blank" class="btn-series">Explorar curso</a>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm5j7ph7Yk0z58OpZl_2_Rpa" target="_blank" rel="noopener noreferrer" class="btn-series">Explorar curso</a>
         </div>
       </article>
 
@@ -1362,18 +1393,18 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-2" style="transition-delay:0.24s">
         <div class="series-img-wrap">
           <div class="series-label">Serie</div>
-          <img src="Google_Antigravity.png" alt="Portada de la serie Google Antigravity de EdTrainer TV" class="series-thumb">
+          <img src="Google_Antigravity.png" alt="Portada de la serie Google Antigravity de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">Google Antigravity</h3>
           <p class="series-desc">Una serie pensada para descubrir cómo trabajar con agentes de inteligencia artificial de forma más avanzada, útil y estratégica. Aporta una visión clara sobre cómo personalizar su comportamiento, automatizar tareas, conectar herramientas y desarrollar soluciones con utilidad real, ayudando al usuario a pasar de la curiosidad inicial a un uso mucho más sólido y productivo de esta tecnología.</p>
-          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm7-zuYfMuK-CTSXXJxXm_lH" target="_blank" class="btn-series">Ver serie</a>
+          <a href="https://www.youtube.com/playlist?list=PLcEAZvNGhvm7-zuYfMuK-CTSXXJxXm_lH" target="_blank" rel="noopener noreferrer" class="btn-series">Ver serie</a>
         </div>
       </article>
     </div>
 
     <div class="series-footer fade-in">
-      <a href="https://www.youtube.com/@EdTrainerTv/playlists" target="_blank" class="btn btn-ghost">
+      <a href="https://www.youtube.com/@EdTrainerTv/playlists" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
         Ver todas las playlists
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 6px;"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
       </a>
@@ -1398,7 +1429,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Descubre cómo comunicarte eficazmente con ChatGPT y Claude para generar rúbricas, programaciones y más.</p>
-          <button class="btn-dl">Descargar PDF</button>
+          <a href="100-Prompts-Educativos.pdf" download="100-Prompts-Educativos-EdTrainer.pdf" class="btn-dl btn-dl--link">Descargar PDF</a>
         </div>
       </div>
 
@@ -1410,7 +1441,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Organiza mejor la conexión y configuración de NotebookLM con una plantilla MCP Service pensada para facilitar integraciones, estructurar el contexto de trabajo y aprovechar esta herramienta de forma más avanzada y eficiente.</p>
-          <a href="NotebookLM_MCP.pdf" download="NotebookLM_MCP.pdf" class="btn-dl" style="text-align: center; text-decoration: none; display: block;">Descargar plantilla</a>
+          <a href="NotebookLM_MCP.pdf" download="NotebookLM_MCP.pdf" class="btn-dl btn-dl--link">Descargar plantilla</a>
         </div>
       </div>
 
@@ -1422,7 +1453,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Prepara tu certificación oficial con esta guía detallada sobre el uso de la IA de Google en el entorno educativo.</p>
-          <a href="Guia-del-Examen-Educador-Certificado.pdf" download="Guia-Gemini-Educator-EdTrainer.pdf" class="btn-dl" style="text-align: center; text-decoration: none; display: block;">Descargar Guía</a>
+          <a href="Guia-del-Examen-Educador-Certificado.pdf" download="Guia-Gemini-Educator-EdTrainer.pdf" class="btn-dl btn-dl--link">Descargar Guía</a>
         </div>
       </div>
     </div>
@@ -1487,7 +1518,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 
     <div class="faq-list fade-in fade-in--delay-1">
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿A quién está dirigido el canal de EdTrainer TV?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1498,7 +1529,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿Ofreces formación personalizada para centros educativos?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1509,7 +1540,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿Qué es la comunidad IB Nexus?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1520,7 +1551,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿El asesoramiento para YouTube es solo para docentes?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1531,7 +1562,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿Puedo pedir ayuda si acabo de empezar en YouTube?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1542,7 +1573,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿Qué tipo de ayuda concreta puedo pedirte?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1553,7 +1584,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿El asesoramiento es personalizado o sigues una plantilla?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1564,7 +1595,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-btn">
+        <button class="faq-btn" aria-expanded="false">
           <span class="faq-question">¿También puedes revisar un canal que ya está en marcha?</span>
           <div class="faq-chevron">↓</div>
         </button>
@@ -1737,7 +1768,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <h2>No te pierdas los nuevos vídeos</h2>
         <p>Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.</p>
         <div class="yt-cta-btns">
-          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="btn btn-yt">Suscribirme al canal</a>
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="btn btn-yt">Suscribirme al canal</a>
           <a href="#recursos" class="btn btn-ghost">Ver vídeos populares</a>
         </div>
       </div>
@@ -1750,6 +1781,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
+</main>
 <footer>
   <div class="container">
     <div class="footer-main">
@@ -1760,9 +1792,9 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </a>
         <p>Acompañando a docentes e instituciones educativas en la integración ética, estratégica y eficaz de la tecnología y la Inteligencia Artificial.</p>
         <div class="footer-socials">
-          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" class="footer-soc">YT</a>
-          <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" class="footer-soc">IN</a>
-          <a href="https://x.com/LuisAlfonso_R" target="_blank" class="footer-soc">X</a>
+          <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="footer-soc">YT</a>
+          <a href="https://www.linkedin.com/in/luisalfonsoruiz/" target="_blank" rel="noopener noreferrer" class="footer-soc">IN</a>
+          <a href="https://x.com/LuisAlfonso_R" target="_blank" rel="noopener noreferrer" class="footer-soc">X</a>
         </div>
       </div>
 
@@ -1905,7 +1937,8 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
-      item.classList.toggle('open');
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 
