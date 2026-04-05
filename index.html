@@ -108,6 +108,23 @@ body::before {
   flex-shrink: 0; box-shadow: 0 0 9px var(--teal);
   animation: pulse-dot 2.6s ease-in-out infinite;
 }
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes em-glow {
+  0%,100% { color: var(--teal); text-shadow: 0 0 0px rgba(61,216,196,0); }
+  50%      { color: var(--teal2); text-shadow: 0 0 22px rgba(61,216,196,0.35); }
+}
+@keyframes stat-enter {
+  0%   { opacity: 0; transform: scale(0.75); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-up-title {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 @keyframes pulse-dot {
   0%,100% { box-shadow: 0 0 5px var(--teal); transform: scale(1); }
   50%      { box-shadow: 0 0 18px var(--teal); transform: scale(1.3); }
@@ -124,9 +141,20 @@ h1 { font-size: clamp(54px, 8.5vw, 100px); font-weight: 700; letter-spacing: -0.
 h2 { font-size: clamp(32px, 4.5vw, 54px); font-weight: 700; letter-spacing: -0.025em; margin-bottom: 16px; }
 h2 em { font-style: italic; color: var(--teal); font-weight: 400; }
 h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  animation: em-glow 4s ease-in-out infinite;
+}
 .lead { font-size: 18px; color: var(--dim); line-height: 1.8; }
 .body-text { font-size: 15px; color: var(--dim); line-height: 1.75; }
 .section-header { text-align: center; margin-bottom: 64px; }
+.section-header.visible h2 {
+  animation: slide-up-title 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.section-header.visible .eyebrow {
+  animation: slide-up-title 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 .section-header .lead { max-width: 580px; margin: 0 auto; }
 
 /* ═══════════════════════════════════════════
@@ -147,6 +175,15 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 .btn-teal {
   background: var(--teal); color: #041009;
   box-shadow: 0 4px 24px rgba(61,216,196,0.28);
+  position: relative; overflow: hidden;
+}
+.btn-teal::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.28) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s ease-in-out infinite;
+  pointer-events: none;
 }
 .btn-teal:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,216,196,0.42); }
 .btn-ghost {
@@ -173,6 +210,9 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 .fade-in--delay-1 { transition-delay: 0.1s; }
 .fade-in--delay-2 { transition-delay: 0.2s; }
 .fade-in--delay-3 { transition-delay: 0.3s; }
+.fade-in--delay-4 { transition-delay: 0.45s; }
+.fade-in--delay-5 { transition-delay: 0.6s; }
+.fade-in--delay-6 { transition-delay: 0.75s; }
 body:not(.js-loaded) .fade-in { opacity: 1; transform: none; }
 
 /* ═══════════════════════════════════════════
@@ -307,7 +347,13 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .stat-num {
   font-family: var(--font-serif); font-size: 40px; font-weight: 700;
   color: var(--teal); letter-spacing: -0.04em; display: block; line-height: 1;
+  display: inline-block;
 }
+.hero-stats.visible .stat-num {
+  animation: stat-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-stats.visible .hero-stat:nth-child(2) .stat-num { animation-delay: 0.1s; }
+.hero-stats.visible .hero-stat:nth-child(3) .stat-num { animation-delay: 0.2s; }
 .stat-label { font-size: 11px; color: var(--dim2); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 5px; display: block; }
 
 /* Hero right - visual */
@@ -715,7 +761,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   -webkit-appearance: none;
   appearance: none;
 }
-.form-i:focus, .form-s:focus, .form-t:focus { border-color: var(--teal); background: rgba(61,216,196,0.07); }
+.form-i:focus, .form-s:focus, .form-t:focus { border-color: var(--teal); background: rgba(61,216,196,0.07); box-shadow: 0 0 0 3px rgba(61,216,196,0.1), 0 0 16px rgba(61,216,196,0.08); }
 .form-i::placeholder, .form-t::placeholder { color: var(--dim2); }
 .form-s { cursor: pointer; }
 .form-s option { background: var(--bg2); color: var(--white); }
@@ -1141,7 +1187,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       </article>
 
       <!-- Bienestar -->
-      <article class="series-card fade-in fade-in--delay-1">
+      <article class="series-card fade-in fade-in--delay-1" style="transition-delay:0.12s">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
           <img src="Bienestar_emocional.png" alt="Bienestar Emocional" class="series-thumb">
@@ -1154,7 +1200,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       </article>
 
       <!-- Antigravity -->
-      <article class="series-card fade-in fade-in--delay-2">
+      <article class="series-card fade-in fade-in--delay-2" style="transition-delay:0.24s">
         <div class="series-img-wrap">
           <div class="series-label">Serie</div>
           <img src="Google_Antigravity.png" alt="Google Antigravity" class="series-thumb">
@@ -1245,7 +1291,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
 
-      <div class="testimonial-card fade-in fade-in--delay-1">
+      <div class="testimonial-card fade-in fade-in--delay-1" style="transition-delay:0.15s">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text">"EdTrainer TV es mi principal fuente de actualización docente. El rigor y el criterio con el que analiza cada herramienta son imprescindibles hoy en día."</p>
         <div class="testimonial-author">
@@ -1257,7 +1303,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
 
-      <div class="testimonial-card fade-in fade-in--delay-2">
+      <div class="testimonial-card fade-in fade-in--delay-2" style="transition-delay:0.3s">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text">"La formación in-company que recibimos sobre Google Workspace revolucionó nuestro colegio. Una metodología impecable y 100% aplicable."</p>
         <div class="testimonial-author">
@@ -1411,27 +1457,27 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <div class="asesoria-card-title">Enfoque y propuesta del canal</div>
         <p class="asesoria-card-desc">Definimos juntos de qué va tu canal, a quién le habla y qué lo hace diferente. Sin claridad en esto, lo demás no sostiene.</p>
       </div>
-      <div class="asesoria-card">
+      <div class="asesoria-card" style="transition-delay:0.08s">
         <div class="asesoria-card-icon">📐</div>
         <div class="asesoria-card-title">Estrategia de contenidos</div>
         <p class="asesoria-card-desc">Qué publicar, con qué frecuencia, en qué formato y por qué. Una estrategia que puedas mantener y que tenga coherencia.</p>
       </div>
-      <div class="asesoria-card">
+      <div class="asesoria-card" style="transition-delay:0.16s">
         <div class="asesoria-card-icon">🗂️</div>
         <div class="asesoria-card-title">Organización y estructura</div>
         <p class="asesoria-card-desc">Playlists, series, categorías y arquitectura del canal. Que alguien que llega por primera vez sepa exactamente dónde está y por qué quedarse.</p>
       </div>
-      <div class="asesoria-card">
+      <div class="asesoria-card" style="transition-delay:0.24s">
         <div class="asesoria-card-icon">✍️</div>
         <div class="asesoria-card-title">Guiones y claridad del mensaje</div>
         <p class="asesoria-card-desc">Ayudo a construir guiones más claros, directos y efectivos. Que lo que tienes en la cabeza llegue bien al espectador.</p>
       </div>
-      <div class="asesoria-card">
+      <div class="asesoria-card" style="transition-delay:0.32s">
         <div class="asesoria-card-icon">🔍</div>
         <div class="asesoria-card-title">Posicionamiento y diferenciación</div>
         <p class="asesoria-card-desc">En qué punto del mapa estás, cómo te percibe tu audiencia y qué puedes hacer para ocupar un lugar propio y reconocible.</p>
       </div>
-      <div class="asesoria-card">
+      <div class="asesoria-card" style="transition-delay:0.40s">
         <div class="asesoria-card-icon">🤖</div>
         <div class="asesoria-card-title">Herramientas e inteligencia artificial</div>
         <p class="asesoria-card-desc">Cómo integrar la IA y las herramientas digitales en tu flujo de trabajo para ahorrar tiempo, mejorar la producción y trabajar con más criterio.</p>
