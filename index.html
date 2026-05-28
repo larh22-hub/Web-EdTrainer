@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Luis Alfonso Ruiz, Google Certified Trainer &amp; Innovator. Canal EdTrainer TV con +300.000 suscriptores. Formación en inteligencia artificial educativa, Google Workspace y tecnología para docentes. Madrid, España.">
+<meta name="description" content="Luis Alfonso Ruiz, Google Certified Trainer &amp; Innovator. Canal EdTrainer TV con +305.000 suscriptores. Formación en inteligencia artificial educativa, Google Workspace y tecnología para docentes. Madrid, España.">
 <meta name="keywords" content="EdTrainer TV, Luis Alfonso Ruiz, inteligencia artificial educación, formación docentes IA, Google Workspace educación, tecnología educativa, Gemini educación, Google Certified Trainer, formación in-company, YouTube educativo, asesoramiento YouTube, canal educativo">
 <link rel="canonical" href="https://www.edtrainertv.com/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -13,9 +13,9 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EdTrainer TV — IA, tecnología y criterio">
-<meta name="twitter:description" content="+300.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
+<meta name="twitter:description" content="+305.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
 <meta name="twitter:image" content="https://www.edtrainertv.com/perfil.jpg">
-<meta property="og:description" content="+300.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
+<meta property="og:description" content="+305.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
 <title>EdTrainer TV | Luis Alfonso Ruiz — Formación en IA, Google Workspace y Tecnología Educativa</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23060d10'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='Georgia,serif' fill='%233dd8c4'>ET</text></svg>">
 <meta name="theme-color" content="#060d10">
@@ -975,6 +975,18 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   .asesoria-cta-box { padding: 44px 24px; }
 }
 
+/* Language toggle button */
+.lang-btn {
+  background: transparent;
+  border: 1.5px solid var(--teal-border);
+  color: var(--teal);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  padding: 7px 14px; border-radius: var(--radius-sm);
+  cursor: pointer; transition: all 0.2s;
+  font-family: var(--font-sans);
+}
+.lang-btn:hover { background: var(--teal-glow); border-color: var(--teal); }
+
 /* Back to top */
 #back-top {
   position: fixed; bottom: 28px; right: 28px; z-index: 150;
@@ -1019,7 +1031,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   "@id": "https://www.edtrainertv.com/#luis-alfonso-ruiz",
   "name": "Luis Alfonso Ruiz",
   "alternateName": "EdTrainer TV",
-  "description": "Luis Alfonso Ruiz es Google Certified Trainer y Google Certified Innovator, creador del canal de YouTube EdTrainer TV con más de 300.000 suscriptores. Especialista en inteligencia artificial aplicada a la educación, Google Workspace para docentes, productividad educativa y formación in-company en tecnología educativa. Ofrece también asesoramiento y consultoría para creadores de contenido en YouTube. Con base en Madrid, España, y actividad formativa a nivel nacional e internacional.",
+  "description": "Luis Alfonso Ruiz es Google Certified Trainer y Google Certified Innovator, creador del canal de YouTube EdTrainer TV con más de 305.000 suscriptores. Especialista en inteligencia artificial aplicada a la educación, Google Workspace para docentes, productividad educativa y formación in-company en tecnología educativa. Ofrece también asesoramiento y consultoría para creadores de contenido en YouTube. Con base en Madrid, España, y actividad formativa a nivel nacional e internacional.",
   "url": "https://www.edtrainertv.com",
   "image": "https://www.edtrainertv.com/perfil.jpg",
   "sameAs": [
@@ -1059,7 +1071,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   "@id": "https://www.edtrainertv.com/#website",
   "name": "EdTrainer TV",
   "url": "https://www.edtrainertv.com",
-  "description": "Canal de referencia en tecnología educativa, inteligencia artificial y Google Workspace para docentes. Más de 300.000 suscriptores en YouTube.",
+  "description": "Canal de referencia en tecnología educativa, inteligencia artificial y Google Workspace para docentes. Más de 305.000 suscriptores en YouTube.",
   "inLanguage": "es-ES",
   "author": {
     "@id": "https://www.edtrainertv.com/#luis-alfonso-ruiz"
@@ -1167,6 +1179,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
         Suscribirse
       </a>
+      <button class="lang-btn" id="lang-btn" onclick="toggleLang()" aria-label="Switch language">EN</button>
       <button class="nav-burger" id="burger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -1175,6 +1188,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 </nav>
 
 <div class="nav-mobile" id="nav-mobile">
+  <button class="lang-btn" id="lang-btn-mobile" onclick="toggleLang()" aria-label="Switch language" style="align-self:flex-start;margin-bottom:8px;">EN</button>
   <a href="#canal">Canal</a>
   <a href="#sobre">Sobre mí</a>
   <a href="#recursos">Recursos</a>
@@ -1210,7 +1224,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="stat-num" data-target="300">0</span><span class="stat-num">K</span>
+            <span class="stat-num" data-target="305">0</span><span class="stat-num">K</span>
             <span class="stat-label">Suscriptores</span>
           </div>
           <div class="hero-stat">
@@ -1305,7 +1319,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
           <div class="autor-card-body">
             <ul class="cred-list">
               <li class="cred-item"><div class="cred-icon">🎓</div> Formador de formadores especialista en IA y EdTech.</li>
-              <li class="cred-item"><div class="cred-icon">🚀</div> 300K Suscriptores y +140K vistas mensuales en YouTube.</li>
+              <li class="cred-item"><div class="cred-icon">🚀</div> 305K Suscriptores y +140K vistas mensuales en YouTube.</li>
               <li class="cred-item"><div class="cred-icon">💡</div> Creador de la comunidad EdTrainer.</li>
             </ul>
           </div>
@@ -1323,7 +1337,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <div class="sobre-content fade-in fade-in--delay-1">
         <span class="eyebrow"><div class="eyebrow-dot"></div>Trayectoria</span>
         <h2>Experiencia <em>en las aulas</em></h2>
-        <p><strong>Luis Alfonso Ruiz</strong> es Google Certified Trainer y Google Certified Innovator con base en Madrid, España. Es el creador de <strong>EdTrainer TV</strong>, canal de YouTube de referencia en tecnología educativa con más de <strong>300.000 suscriptores</strong> y más de 140.000 vistas mensuales, especializado en inteligencia artificial aplicada a la educación, Google Workspace para docentes y productividad educativa.</p>
+        <p><strong>Luis Alfonso Ruiz</strong> es Google Certified Trainer y Google Certified Innovator con base en Madrid, España. Es el creador de <strong>EdTrainer TV</strong>, canal de YouTube de referencia en tecnología educativa con más de <strong>305.000 suscriptores</strong> y más de 140.000 vistas mensuales, especializado en inteligencia artificial aplicada a la educación, Google Workspace para docentes y productividad educativa.</p>
         <p>A través de EdTrainer TV y de sus formaciones in-company, acompaña a docentes, equipos directivos y centros educativos en la integración pedagógica, ética y práctica de herramientas como <strong>Gemini</strong>, <strong>NotebookLM</strong>, <strong>Google Antigravity</strong> y la inteligencia artificial generativa en el aula. También ofrece asesoramiento y consultoría para creadores de contenido en YouTube.</p>
         
         <div class="areas-grid">
@@ -1788,7 +1802,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
       </div>
       <div class="yt-cta-stats">
-        <div class="yt-stat-big">300K</div>
+        <div class="yt-stat-big">305K</div>
         <div class="yt-stat-label">Suscriptores actuales</div>
       </div>
     </div>
@@ -2042,6 +2056,260 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   window.addEventListener('resize', init);
   init();
   draw();
+
+  // ═══ Language Toggle ═══
+  const TRANSLATIONS = {
+    es: {
+      navCanal:'Canal', navSobre:'Sobre mí', navRecursos:'Recursos', navComunidad:'Comunidad', navAsesoramiento:'Asesoramiento', navContacto:'Contacto',
+      heroTagline:'IA, tecnología y criterio', heroBtnCanal:'Ver el canal', heroBtnRecursos:'Recursos gratuitos',
+      statSuscriptores:'Suscriptores', statVideos:'Vídeos', statAnos:'Años en YouTube', floatCardLabel:'Vistas mensuales',
+      trustLabel:'Con la confianza de', trustCentros:'<span class="trust-item-icon">🏫</span> +200 Centros Educativos', trustResenas:'<span class="trust-item-icon">⭐</span> 4.9/5 Reseñas',
+      canalH2:'IA, Tecnología y <em>Criterio</em>', canalLead:'Explora cientos de tutoriales, guías y análisis semanales sobre inteligencia artificial y educación.', canalFooterBtn:'Visitar canal en YouTube',
+      sobreEyebrow:'<div class="eyebrow-dot"></div>Trayectoria', sobreH2:'Experiencia <em>en las aulas</em>',
+      sobreP1:'<strong>Luis Alfonso Ruiz</strong> es Google Certified Trainer y Google Certified Innovator con base en Madrid, España. Es el creador de <strong>EdTrainer TV</strong>, canal de YouTube de referencia en tecnología educativa con más de <strong>305.000 suscriptores</strong> y más de 140.000 vistas mensuales, especializado en inteligencia artificial aplicada a la educación, Google Workspace para docentes y productividad educativa.',
+      sobreP2:'A través de EdTrainer TV y de sus formaciones in-company, acompaña a docentes, equipos directivos y centros educativos en la integración pedagógica, ética y práctica de herramientas como <strong>Gemini</strong>, <strong>NotebookLM</strong>, <strong>Google Antigravity</strong> y la inteligencia artificial generativa en el aula. También ofrece asesoramiento y consultoría para creadores de contenido en YouTube.',
+      areaIaTitle:'IA en Educación', areaIaDesc:'Prompt Engineering, integraciones en el aula y guías éticas de uso para docentes y alumnos.',
+      areaGwsTitle:'Google Workspace', areaGwsDesc:'Optimización, trucos avanzados y metodologías utilizando el ecosistema de Google.',
+      areaProdTitle:'Productividad docente', areaProdDesc:'Sistemas, automatizaciones y herramientas para recuperar el tiempo y enfocarse en enseñar.',
+      areaKeyTitle:'Keynotes & Talleres', areaKeyDesc:'Ponencias inspiradoras y formaciones in-company para instituciones educativas.',
+      cred1:'Formador de formadores especialista en IA y EdTech.', cred2:'305K Suscriptores y +140K vistas mensuales en YouTube.', cred3:'Creador de la comunidad EdTrainer.',
+      seriesEyebrow:'<div class="eyebrow-dot"></div>Aprendizaje estructurado', seriesH2:'Cursos y series que <em>no te puedes perder</em>',
+      seriesLead:'Si quieres ir más allá de los vídeos individuales, aquí tienes una selección de cursos y series especialmente recomendados para aprender con profundidad, seguir un itinerario claro y descubrir algunos de los contenidos más valiosos del canal.',
+      geminiTitle:'100+ formas de usar Gemini en Educación', geminiDesc:'Un curso práctico que reúne más de cien ideas, ejemplos y aplicaciones reales de Gemini en el ámbito educativo. Aporta al usuario inspiración, recursos y estrategias concretas para ahorrar tiempo, mejorar la planificación, crear materiales, personalizar el aprendizaje y aprovechar la inteligencia artificial con sentido pedagógico.', geminiBtn:'Explorar curso',
+      bienestarTitle:'Gramática del Bienestar Emocional', bienestarDesc:'Un curso centrado en la salud mental y el bienestar emocional de adolescentes y jóvenes en su relación con la tecnología. Aporta claves para comprender cómo influyen las pantallas, las redes, la sobreexposición digital o la conexión permanente en el estado emocional, y ofrece una mirada educativa y práctica para fomentar un uso más consciente, equilibrado y saludable de la tecnología.', bienestarBtn:'Explorar curso',
+      antigravityTitle:'Google Antigravity', antigravityDesc:'Una serie pensada para descubrir cómo trabajar con agentes de inteligencia artificial de forma más avanzada, útil y estratégica. Aporta una visión clara sobre cómo personalizar su comportamiento, automatizar tareas, conectar herramientas y desarrollar soluciones con utilidad real.', antigravityBtn:'Ver serie',
+      anthropicTitle:'Taller Anthropic', anthropicDesc:'El ecosistema completo, instalación en VS Code y tu primera landing page. Un taller práctico para aprender a usar Claude Code desde cero y construir proyectos reales con inteligencia artificial.', anthropicBtn:'Ver taller',
+      seriesAllPlaylists:'Ver todas las playlists',
+      recursosEyebrow:'<div class="eyebrow-dot"></div>Descargas', recursosH2:'Recursos <em>Gratuitos</em>', recursosLead:'Materiales prácticos diseñados para aplicar desde hoy en tu aula.',
+      rec1Type:'Guía Prompting', rec1Title:'100 Prompts Educativos para Profesores', rec1Desc:'Descubre cómo comunicarte eficazmente con ChatGPT y Claude para generar rúbricas, programaciones y más.', rec1Btn:'Descargar PDF',
+      rec2Type:'Plantilla NotebookLM', rec2Title:'Plantilla MCP Server para NotebookLM', rec2Desc:'Organiza mejor la conexión y configuración de NotebookLM con una plantilla MCP Server pensada para facilitar integraciones, estructurar el contexto de trabajo y aprovechar esta herramienta de forma más avanzada y eficiente.', rec2Btn:'Descargar plantilla',
+      rec3Type:'Guía PDF', rec3Title:'Guía del examen Gemini Educator Certificado', rec3Desc:'Prepara tu certificación oficial con esta guía detallada sobre el uso de la IA de Google en el entorno educativo.', rec3Btn:'Descargar Guía',
+      testEyebrow:'<div class="eyebrow-dot"></div>Comunidad', testH2:'Lo que dicen <em>los docentes</em>',
+      test1Text:'"Gracias a los tutoriales de Luis Alfonso he conseguido integrar herramientas de IA en el desarrollo de mis unidades didácticas, ahorrando horas cada semana."', test1Name:'María G.', test1Meta:'Profesora de Secundaria',
+      test2Text:'"EdTrainer TV es mi principal fuente de actualización docente. El rigor y el criterio con el que analiza cada herramienta son imprescindibles hoy en día."', test2Name:'Carlos P.', test2Meta:'Coordinador TIC',
+      test3Text:'"La formación in-company que recibimos sobre Google Workspace revolucionó nuestro colegio. Una metodología impecable y 100% aplicable."', test3Name:'Elena R.', test3Meta:'Directora Educativa',
+      faqEyebrow:'<div class="eyebrow-dot"></div>Dudas comunes', faqH2:'Preguntas <em>Frecuentes</em>',
+      faqQ:['¿A quién está dirigido el canal de EdTrainer TV?','¿Ofreces formación personalizada para centros educativos?','¿Qué es la comunidad IB Nexus?','¿El asesoramiento para YouTube es solo para docentes?','¿Puedo pedir ayuda si acabo de empezar en YouTube?','¿Qué tipo de ayuda concreta puedo pedirte?','¿El asesoramiento es personalizado o sigues una plantilla?','¿También puedes revisar un canal que ya está en marcha?'],
+      faqA:['Principalmente a docentes, equipos directivos, coordinadores de innovación y cualquier profesional de la educación que busque integrar la tecnología de forma efectiva en su día a día.','Sí, realizo formaciones a medida, tanto presenciales como online. Desde el inicio en Google Workspace hasta la integración metodológica de la IA. ¡Escríbeme!','Es un proyecto paralelo premium destinado a docentes del Bachillerato Internacional (IB) donde ofrecemos herramientas y recursos altamente especializados.','No. Aunque mi experiencia está muy vinculada a la educación, el asesoramiento para YouTube está abierto a cualquier persona o profesional que quiera crear contenido con criterio.','Sí, de hecho es uno de los mejores momentos para orientarte. Empezar con una estrategia clara ahorra mucho tiempo y evita errores que luego cuesta mucho corregir.','Puedo ayudarte con el enfoque general del canal, la propuesta de valor, la estrategia de contenidos, la organización de playlists, la claridad de tus guiones y la integración de herramientas digitales e inteligencia artificial.','Siempre personalizado. No trabajo con plantillas genéricas. Cada canal tiene sus propias circunstancias, objetivos y punto de partida.','Por supuesto. A veces el mayor valor está en poner orden en lo que ya existe: revisar el enfoque, identificar qué no está funcionando y proponer ajustes concretos.'],
+      asesorEyebrow:'<div class="eyebrow-dot"></div>Consultoría y Asesoramiento', asesorH2:'Tu canal, con <em>criterio</em>',
+      asesorLead:'Si quieres empezar en YouTube o llevas tiempo publicando pero sientes que algo no termina de encajar, puedo ayudarte a construir un canal con enfoque, estructura y propósito real.',
+      asesorP:['<strong>Empiezas desde cero</strong> y quieres hacerlo bien desde el principio, sin perder el tiempo dando palos de ciego.','<strong>Ya tienes un canal</strong> pero sientes que no avanza, que le falta foco o que no refleja bien lo que quieres transmitir.','<strong>Tienes ideas y ganas</strong>, pero te falta orden, criterio y una estrategia que tenga sentido a largo plazo.','<strong>Quieres mejorar</strong> tu forma de comunicar, tu propuesta de valor, tus guiones o el uso que haces de las herramientas digitales.'],
+      asesorCards:[{title:'Enfoque y propuesta del canal',desc:'Definimos juntos de qué va tu canal, a quién le habla y qué lo hace diferente. Sin claridad en esto, lo demás no sostiene.'},{title:'Estrategia de contenidos',desc:'Qué publicar, con qué frecuencia, en qué formato y por qué. Una estrategia que puedas mantener y que tenga coherencia.'},{title:'Organización y estructura',desc:'Playlists, series, categorías y arquitectura del canal. Que alguien que llega por primera vez sepa exactamente dónde está y por qué quedarse.'},{title:'Guiones y claridad del mensaje',desc:'Ayudo a construir guiones más claros, directos y efectivos. Que lo que tienes en la cabeza llegue bien al espectador.'},{title:'Posicionamiento y diferenciación',desc:'En qué punto del mapa estás, cómo te percibe tu audiencia y qué puedes hacer para ocupar un lugar propio y reconocible.'},{title:'Herramientas e inteligencia artificial',desc:'Cómo integrar la IA y las herramientas digitales en tu flujo de trabajo para ahorrar tiempo, mejorar la producción y trabajar con más criterio.'}],
+      asesorCtaH3:'¿Hablamos sobre tu canal?', asesorCtaP:'Cuéntame en qué punto estás y qué quieres conseguir. Sin compromiso, sin plantillas genéricas. Solo una conversación honesta para ver si puedo ayudarte.', asesorCtaBtn:'Contactar',
+      contactoEyebrow:'<div class="eyebrow-dot"></div>Hablemos', contactoH2:'¿Trabajamos <em>Juntos</em>?',
+      contactoP:'Si tienes un proyecto educativo, necesitas formación para tu claustro o quieres proponer una colaboración, me encantará escucharte.',
+      contactoEmailLbl:'Email Directo', contactoLocLbl:'Ubicación', contactoLocVal:'Madrid, España (y online)',
+      formTitle:'Envía tu propuesta', formNombreLbl:'Nombre', formNombrePh:'Ej: Laura Gómez', formInstLbl:'Institución / Colegio', formInstPh:'Ej: Colegio San José', formEmailLbl:'Email Profesional', formEmailPh:'laura@colegio.edu', formMotivoLbl:'Motivo de contacto',
+      formMotivoOpts:['Formación in-company (Claustro)','Ponencia / Keynote','Consultoría estratégica','Otras colaboraciones','Asesoramiento para YouTube / Canal de contenido'],
+      formMsgLbl:'Tu Mensaje', formMsgPh:'Cuéntame brevemente sobre tu proyecto o necesidades formativas...', formBtnText:'Enviar Mensaje', formOkMsg:'¡Mensaje enviado con éxito! Te responderé en 24-48 horas hábiles.',
+      ytCtaH2:'No te pierdas los nuevos vídeos', ytCtaP:'Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.', ytCtaBtn1:'Suscribirme al canal', ytCtaBtn2:'Ver vídeos populares', ytStatLabel:'Suscriptores actuales',
+      footerBrandP:'Acompañando a docentes e instituciones educativas en la integración ética, estratégica y eficaz de la tecnología y la Inteligencia Artificial.',
+      footerNavH4:'Navegación', footerNavInicio:'Inicio', footerNavCanal:'Canal YouTube', footerNavSobre:'Sobre mí', footerNavRecursos:'Recursos gratuitos', footerNavComunidad:'Comunidad',
+      footerProjH4:'Proyectos', footerProjComunidad:'Comunidad EdTrainer', footerProjFormacion:'Formación In-Company',
+      footerContactH4:'Contacto', footerContactForm:'Formulario web',
+      footerBottom:'© 2024 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.', footerSecure:'🔒 Sitio Seguro', langBtnLabel:'EN'
+    },
+    en: {
+      navCanal:'Channel', navSobre:'About', navRecursos:'Resources', navComunidad:'Community', navAsesoramiento:'Consulting', navContacto:'Contact',
+      heroTagline:'AI, technology and insight', heroBtnCanal:'Watch the channel', heroBtnRecursos:'Free resources',
+      statSuscriptores:'Subscribers', statVideos:'Videos', statAnos:'Years on YouTube', floatCardLabel:'Monthly views',
+      trustLabel:'Trusted by', trustCentros:'<span class="trust-item-icon">🏫</span> +200 Schools', trustResenas:'<span class="trust-item-icon">⭐</span> 4.9/5 Reviews',
+      canalH2:'AI, Technology and <em>Insight</em>', canalLead:'Explore hundreds of tutorials, guides and weekly analyses on artificial intelligence and education.', canalFooterBtn:'Visit YouTube channel',
+      sobreEyebrow:'<div class="eyebrow-dot"></div>Background', sobreH2:'Experience <em>in the classroom</em>',
+      sobreP1:'<strong>Luis Alfonso Ruiz</strong> is a Google Certified Trainer and Google Certified Innovator based in Madrid, Spain. He is the creator of <strong>EdTrainer TV</strong>, a leading YouTube channel in educational technology with more than <strong>305,000 subscribers</strong> and over 140,000 monthly views, specializing in AI applied to education, Google Workspace for teachers, and educational productivity.',
+      sobreP2:'Through EdTrainer TV and his in-company trainings, he guides teachers, management teams and schools in the pedagogical, ethical and practical integration of tools such as <strong>Gemini</strong>, <strong>NotebookLM</strong>, <strong>Google Antigravity</strong> and generative AI in the classroom. He also offers advice and consulting for YouTube content creators.',
+      areaIaTitle:'AI in Education', areaIaDesc:'Prompt Engineering, classroom integrations and ethical use guides for teachers and students.',
+      areaGwsTitle:'Google Workspace', areaGwsDesc:'Optimization, advanced tips and methodologies using the Google ecosystem.',
+      areaProdTitle:'Teacher Productivity', areaProdDesc:'Systems, automations and tools to reclaim time and focus on teaching.',
+      areaKeyTitle:'Keynotes & Workshops', areaKeyDesc:'Inspiring talks and in-company training for educational institutions.',
+      cred1:'Trainer of trainers specializing in AI and EdTech.', cred2:'305K Subscribers and +140K monthly views on YouTube.', cred3:'Creator of the EdTrainer community.',
+      seriesEyebrow:'<div class="eyebrow-dot"></div>Structured Learning', seriesH2:"Courses and series you <em>can't miss</em>",
+      seriesLead:'If you want to go beyond individual videos, here is a selection of courses and series especially recommended for in-depth learning, following a clear itinerary and discovering some of the most valuable content on the channel.',
+      geminiTitle:'100+ ways to use Gemini in Education', geminiDesc:'A practical course gathering more than a hundred ideas, examples and real applications of Gemini in the educational field. It provides inspiration, resources and concrete strategies to save time, improve planning, create materials, personalize learning and leverage AI with pedagogical purpose.', geminiBtn:'Explore course',
+      bienestarTitle:'Grammar of Emotional Wellbeing', bienestarDesc:'A course focused on mental health and emotional wellbeing of teenagers and young people in their relationship with technology. It provides keys to understand how screens, social media and digital overexposure affect emotional wellbeing, and offers an educational perspective for healthier, more conscious use of technology.', bienestarBtn:'Explore course',
+      antigravityTitle:'Google Antigravity', antigravityDesc:'A series designed to discover how to work with AI agents in a more advanced, useful and strategic way. It provides a clear vision on how to customize behavior, automate tasks, connect tools and develop solutions with real-world utility.', antigravityBtn:'Watch series',
+      anthropicTitle:'Anthropic Workshop', anthropicDesc:'The complete ecosystem, VS Code installation and your first landing page. A hands-on workshop to learn how to use Claude Code from scratch and build real projects with artificial intelligence.', anthropicBtn:'Watch workshop',
+      seriesAllPlaylists:'View all playlists',
+      recursosEyebrow:'<div class="eyebrow-dot"></div>Downloads', recursosH2:'Free <em>Resources</em>', recursosLead:'Practical materials designed to apply today in your classroom.',
+      rec1Type:'Prompting Guide', rec1Title:'100 Educational Prompts for Teachers', rec1Desc:'Discover how to communicate effectively with ChatGPT and Claude to generate rubrics, lesson plans and more.', rec1Btn:'Download PDF',
+      rec2Type:'NotebookLM Template', rec2Title:'MCP Server Template for NotebookLM', rec2Desc:'Better organize your NotebookLM connection and configuration with an MCP Server template designed to facilitate integrations, structure your work context and leverage this tool more efficiently.', rec2Btn:'Download template',
+      rec3Type:'PDF Guide', rec3Title:'Gemini Certified Educator Exam Guide', rec3Desc:"Prepare for your official certification with this detailed guide on using Google's AI in educational environments.", rec3Btn:'Download Guide',
+      testEyebrow:'<div class="eyebrow-dot"></div>Community', testH2:'What <em>teachers say</em>',
+      test1Text:'"Thanks to Luis Alfonso\'s tutorials I have managed to integrate AI tools into my lesson unit development, saving hours every week."', test1Name:'María G.', test1Meta:'Secondary School Teacher',
+      test2Text:'"EdTrainer TV is my main source of professional development. The rigor and insight with which he analyzes each tool are essential today."', test2Name:'Carlos P.', test2Meta:'ICT Coordinator',
+      test3Text:'"The in-company training we received on Google Workspace revolutionized our school. Impeccable methodology and 100% applicable."', test3Name:'Elena R.', test3Meta:'School Principal',
+      faqEyebrow:'<div class="eyebrow-dot"></div>Common Questions', faqH2:'Frequently Asked <em>Questions</em>',
+      faqQ:["Who is EdTrainer TV's channel aimed at?",'Do you offer personalized training for schools?','What is the IB Nexus community?','Is YouTube consulting only for teachers?',"Can I ask for help if I'm just starting on YouTube?",'What kind of concrete help can I ask for?','Is the consulting personalized or do you follow a template?',"Can you also review a channel that's already running?"],
+      faqA:['Primarily teachers, management teams, innovation coordinators and any education professional looking to effectively integrate technology into their daily work.','Yes, I provide customized training, both in-person and online. From getting started with Google Workspace to the methodological integration of AI. Write to me!','It is a premium parallel project aimed at International Baccalaureate (IB) teachers where we offer highly specialized tools and resources.',"No. Although my experience is closely linked to education, YouTube consulting is open to anyone who wants to create content with purpose. What matters is the will to build something useful and well thought-out.","Yes, in fact it's one of the best times to get guidance. Starting with a clear strategy saves a lot of time and avoids mistakes that are later very difficult to correct.",'I can help you with the overall channel direction, value proposition, content strategy, playlist organization, script clarity, positioning and differentiation, and also with integrating digital tools and AI into your workflow.',"Always personalized. I don't work with generic templates. Each channel has its own circumstances, objectives and starting point. What I propose will be adapted to your specific situation.","Of course. Sometimes the greatest value is in organizing what already exists: reviewing the approach, identifying what isn't working and proposing concrete adjustments."],
+      asesorEyebrow:'<div class="eyebrow-dot"></div>Consulting & Advisory', asesorH2:'Your channel, with <em>purpose</em>',
+      asesorLead:"Whether you want to start on YouTube or have been publishing for a while but feel something isn't quite right, I can help you build a channel with focus, structure and real purpose.",
+      asesorP:['<strong>Starting from scratch</strong> and want to do it right from the beginning, without wasting time.',"<strong>You have a channel</strong> but feel it's not growing, lacks focus or doesn't reflect what you want to convey.",'<strong>You have ideas and drive</strong>, but lack order, direction and a strategy that makes long-term sense.','<strong>You want to improve</strong> your communication, value proposition, scripts or use of digital tools.'],
+      asesorCards:[{title:'Channel focus & proposal',desc:"We define together what your channel is about, who it speaks to and what makes it different. Without clarity here, nothing else holds."},{title:'Content strategy',desc:'What to publish, how often, in what format and why. A strategy you can sustain and that has coherence.'},{title:'Organization & structure',desc:'Playlists, series, categories and channel architecture. So someone who arrives for the first time knows exactly where they are and why to stay.'},{title:'Scripts & message clarity',desc:"I help build clearer, more direct and effective scripts. So what's in your head reaches the viewer well."},{title:'Positioning & differentiation',desc:'Where you stand on the map, how your audience perceives you and what you can do to occupy your own recognizable place.'},{title:'Tools & artificial intelligence',desc:'How to integrate AI and digital tools into your workflow to save time, improve production and work with more purpose.'}],
+      asesorCtaH3:'Shall we talk about your channel?', asesorCtaP:"Tell me where you are and what you want to achieve. No commitment, no generic templates. Just an honest conversation to see if I can help.", asesorCtaBtn:'Contact',
+      contactoEyebrow:"<div class='eyebrow-dot'></div>Let's talk", contactoH2:'Shall we <em>work together</em>?',
+      contactoP:"If you have an educational project, need training for your staff or want to propose a collaboration, I'd love to hear from you.",
+      contactoEmailLbl:'Direct Email', contactoLocLbl:'Location', contactoLocVal:'Madrid, Spain (and online)',
+      formTitle:'Send your proposal', formNombreLbl:'Name', formNombrePh:'E.g.: Laura Gómez', formInstLbl:'Institution / School', formInstPh:"E.g.: Saint Joseph's School", formEmailLbl:'Professional Email', formEmailPh:'laura@school.edu', formMotivoLbl:'Reason for contact',
+      formMotivoOpts:['In-company Training (Staff)','Talk / Keynote','Strategic Consulting','Other collaborations','YouTube / Content Channel Advisory'],
+      formMsgLbl:'Your Message', formMsgPh:'Briefly tell me about your project or training needs...', formBtnText:'Send Message', formOkMsg:'Message sent successfully! I will reply within 24-48 business hours.',
+      ytCtaH2:"Don't miss the new videos", ytCtaP:"Tips, tutorials and analyses of tech tools designed exclusively to make teachers' lives easier.", ytCtaBtn1:'Subscribe to the channel', ytCtaBtn2:'Watch popular videos', ytStatLabel:'Current subscribers',
+      footerBrandP:'Supporting teachers and educational institutions in the ethical, strategic and effective integration of technology and Artificial Intelligence.',
+      footerNavH4:'Navigation', footerNavInicio:'Home', footerNavCanal:'YouTube Channel', footerNavSobre:'About me', footerNavRecursos:'Free resources', footerNavComunidad:'Community',
+      footerProjH4:'Projects', footerProjComunidad:'EdTrainer Community', footerProjFormacion:'In-Company Training',
+      footerContactH4:'Contact', footerContactForm:'Web form',
+      footerBottom:'© 2024 EdTrainer TV - Luis Alfonso Ruiz. All rights reserved.', footerSecure:'🔒 Secure Site', langBtnLabel:'ES'
+    }
+  };
+
+  let currentLang = localStorage.getItem('edtrainer-lang') || 'es';
+
+  function applyLang(lang) {
+    const t = TRANSLATIONS[lang];
+    const $ = s => document.querySelector(s);
+    const $$ = s => document.querySelectorAll(s);
+
+    document.documentElement.lang = lang === 'es' ? 'es-ES' : 'en';
+
+    // Nav center
+    const navLinks = $$('.nav-center li a');
+    ['navCanal','navSobre','navRecursos','navComunidad','navAsesoramiento','navContacto'].forEach((k,i) => { if(navLinks[i]) navLinks[i].textContent = t[k]; });
+
+    // Nav mobile
+    const mobileLinks = $$('.nav-mobile a:not(.nav-mobile-yt)');
+    ['navCanal','navSobre','navRecursos','navComunidad','navContacto'].forEach((k,i) => { if(mobileLinks[i]) mobileLinks[i].textContent = t[k]; });
+
+    // Lang buttons
+    $$('[id^="lang-btn"]').forEach(btn => { btn.textContent = t.langBtnLabel; });
+
+    // Hero
+    const tagline = $('.hero-tagline'); if(tagline) tagline.textContent = t.heroTagline;
+    const heroActions = $$('.hero-actions .btn');
+    if(heroActions[0]){ const svg=heroActions[0].querySelector('svg'); heroActions[0].textContent=t.heroBtnCanal; if(svg) heroActions[0].prepend(svg); }
+    if(heroActions[1]) heroActions[1].textContent = t.heroBtnRecursos;
+    $$('.stat-label').forEach((el,i) => { const k=['statSuscriptores','statVideos','statAnos'][i]; if(k) el.textContent=t[k]; });
+    const floatLbl = $('.float-card-label'); if(floatLbl) floatLbl.textContent = t.floatCardLabel;
+
+    // Trust
+    const trustLbl = $('.trust-label'); if(trustLbl) trustLbl.textContent = t.trustLabel;
+    const trustItems = $$('.trust-item');
+    if(trustItems[1]) trustItems[1].innerHTML = t.trustCentros;
+    if(trustItems[2]) trustItems[2].innerHTML = t.trustResenas;
+
+    // Canal
+    const cH2=$('#canal .section-header h2'); if(cH2) cH2.innerHTML=t.canalH2;
+    const cLead=$('#canal .section-header .lead'); if(cLead) cLead.textContent=t.canalLead;
+    const cBtn=$('#canal .canal-footer .btn-yt'); if(cBtn) cBtn.textContent=t.canalFooterBtn;
+
+    // Sobre
+    const sEy=$('#sobre .sobre-content .eyebrow'); if(sEy) sEy.innerHTML=t.sobreEyebrow;
+    const sH2=$('#sobre .sobre-content h2'); if(sH2) sH2.innerHTML=t.sobreH2;
+    const sPs=$$('#sobre .sobre-content > p'); if(sPs[0]) sPs[0].innerHTML=t.sobreP1; if(sPs[1]) sPs[1].innerHTML=t.sobreP2;
+    $$('.area-card').forEach((c,i) => {
+      const titles=['areaIaTitle','areaGwsTitle','areaProdTitle','areaKeyTitle'];
+      const descs=['areaIaDesc','areaGwsDesc','areaProdDesc','areaKeyDesc'];
+      const tt=c.querySelector('.area-title'); if(tt&&titles[i]) tt.textContent=t[titles[i]];
+      const dd=c.querySelector('.area-desc'); if(dd&&descs[i]) dd.textContent=t[descs[i]];
+    });
+    $$('.cred-item').forEach((item,i) => {
+      const icon=item.querySelector('.cred-icon'); const keys=['cred1','cred2','cred3'];
+      if(keys[i]){ item.textContent=t[keys[i]]; if(icon) item.prepend(icon); }
+    });
+
+    // Series
+    const srEy=$('#series .section-header .eyebrow'); if(srEy) srEy.innerHTML=t.seriesEyebrow;
+    const srH2=$('#series .section-header h2'); if(srH2) srH2.innerHTML=t.seriesH2;
+    const srLd=$('#series .section-header .lead'); if(srLd) srLd.textContent=t.seriesLead;
+    const srTitles=[t.geminiTitle,t.bienestarTitle,t.antigravityTitle,t.anthropicTitle];
+    const srDescs=[t.geminiDesc,t.bienestarDesc,t.antigravityDesc,t.anthropicDesc];
+    const srBtns=[t.geminiBtn,t.bienestarBtn,t.antigravityBtn,t.anthropicBtn];
+    $$('.series-card').forEach((c,i) => {
+      const ti=c.querySelector('.series-title'); if(ti) ti.textContent=srTitles[i];
+      const de=c.querySelector('.series-desc'); if(de) de.textContent=srDescs[i];
+      const bt=c.querySelector('.btn-series'); if(bt) bt.textContent=srBtns[i];
+    });
+    const allPl=$('#series .series-footer .btn-ghost');
+    if(allPl){ const svg=allPl.querySelector('svg'); allPl.textContent=t.seriesAllPlaylists; if(svg) allPl.appendChild(svg); }
+
+    // Recursos
+    const rEy=$('#recursos .section-header .eyebrow'); if(rEy) rEy.innerHTML=t.recursosEyebrow;
+    const rH2=$('#recursos .section-header h2'); if(rH2) rH2.innerHTML=t.recursosH2;
+    const rLd=$('#recursos .section-header .lead'); if(rLd) rLd.textContent=t.recursosLead;
+    const rTypes=[t.rec1Type,t.rec2Type,t.rec3Type], rTitles=[t.rec1Title,t.rec2Title,t.rec3Title], rDescs=[t.rec1Desc,t.rec2Desc,t.rec3Desc], rBtns=[t.rec1Btn,t.rec2Btn,t.rec3Btn];
+    $$('.recurso-card').forEach((c,i) => {
+      const tp=c.querySelector('.recurso-type'); if(tp) tp.textContent=rTypes[i];
+      const ti=c.querySelector('.recurso-title'); if(ti) ti.textContent=rTitles[i];
+      const de=c.querySelector('.recurso-desc'); if(de) de.textContent=rDescs[i];
+      const bt=c.querySelector('.btn-dl'); if(bt) bt.textContent=rBtns[i];
+    });
+
+    // Testimonios
+    const tEy=$('#testimonios .section-header .eyebrow'); if(tEy) tEy.innerHTML=t.testEyebrow;
+    const tH2=$('#testimonios .section-header h2'); if(tH2) tH2.innerHTML=t.testH2;
+    const tTexts=[t.test1Text,t.test2Text,t.test3Text], tNames=[t.test1Name,t.test2Name,t.test3Name], tMetas=[t.test1Meta,t.test2Meta,t.test3Meta];
+    $$('.testimonial-card').forEach((c,i) => {
+      const tx=c.querySelector('.testimonial-text'); if(tx) tx.textContent=tTexts[i];
+      const nm=c.querySelector('.testimonial-name'); if(nm) nm.textContent=tNames[i];
+      const mt=c.querySelector('.testimonial-meta'); if(mt) mt.textContent=tMetas[i];
+    });
+
+    // FAQ
+    const fEy=$('#faq .section-header .eyebrow'); if(fEy) fEy.innerHTML=t.faqEyebrow;
+    const fH2=$('#faq .section-header h2'); if(fH2) fH2.innerHTML=t.faqH2;
+    $$('.faq-item').forEach((item,i) => {
+      const q=item.querySelector('.faq-question'); if(q&&t.faqQ[i]) q.textContent=t.faqQ[i];
+      const a=item.querySelector('.faq-answer-inner'); if(a&&t.faqA[i]) a.textContent=t.faqA[i];
+    });
+
+    // Asesoramiento
+    const aEy=$('#asesoramiento .section-header .eyebrow'); if(aEy) aEy.innerHTML=t.asesorEyebrow;
+    const aH2=$('#asesoramiento .section-header h2'); if(aH2) aH2.innerHTML=t.asesorH2;
+    const aLd=$('#asesoramiento .section-header .lead'); if(aLd) aLd.textContent=t.asesorLead;
+    $$('.asesoria-perfil-text').forEach((p,i) => { if(t.asesorP[i]) p.innerHTML=t.asesorP[i]; });
+    $$('.asesoria-card').forEach((c,i) => {
+      const ti=c.querySelector('.asesoria-card-title'); if(ti&&t.asesorCards[i]) ti.textContent=t.asesorCards[i].title;
+      const de=c.querySelector('.asesoria-card-desc'); if(de&&t.asesorCards[i]) de.textContent=t.asesorCards[i].desc;
+    });
+    const acH3=$('.asesoria-cta-box h3'); if(acH3) acH3.textContent=t.asesorCtaH3;
+    const acP=$('.asesoria-cta-box p'); if(acP) acP.textContent=t.asesorCtaP;
+    const acBtn=$('.asesoria-cta-box .btn-teal'); if(acBtn){ const svg=acBtn.querySelector('svg'); acBtn.textContent=t.asesorCtaBtn; if(svg) acBtn.appendChild(svg); }
+
+    // Contacto
+    const coEy=$('#contacto .contacto-info .eyebrow'); if(coEy) coEy.innerHTML=t.contactoEyebrow;
+    const coH2=$('#contacto .contacto-info h2'); if(coH2) coH2.innerHTML=t.contactoH2;
+    const coP=$('#contacto .contacto-info p'); if(coP) coP.textContent=t.contactoP;
+    const cLinks=$$('.contact-link');
+    if(cLinks[0]){ const l=cLinks[0].querySelector('.contact-link-lbl'); if(l) l.textContent=t.contactoEmailLbl; }
+    if(cLinks[1]){ const l=cLinks[1].querySelector('.contact-link-lbl'); const v=cLinks[1].querySelector('.contact-link-val'); if(l) l.textContent=t.contactoLocLbl; if(v) v.textContent=t.contactoLocVal; }
+    const fTitle=$('.form-title'); if(fTitle) fTitle.textContent=t.formTitle;
+    $$('.form-l').forEach((l,i) => { const k=['formNombreLbl','formInstLbl','formEmailLbl','formMotivoLbl','formMsgLbl'][i]; if(k) l.textContent=t[k]; });
+    const fInputs=$$('.form-i'); if(fInputs[0]) fInputs[0].placeholder=t.formNombrePh; if(fInputs[1]) fInputs[1].placeholder=t.formInstPh; if(fInputs[2]) fInputs[2].placeholder=t.formEmailPh;
+    const fSel=$('.form-s'); if(fSel) fSel.querySelectorAll('option').forEach((o,i) => { if(t.formMotivoOpts[i]) o.textContent=t.formMotivoOpts[i]; });
+    const fTa=$('.form-t'); if(fTa) fTa.placeholder=t.formMsgPh;
+    const fBt=document.getElementById('form-btn-text'); if(fBt) fBt.textContent=t.formBtnText;
+    const fOk=document.getElementById('form-contacto-ok'); if(fOk) fOk.textContent=t.formOkMsg;
+
+    // YouTube CTA
+    const yH2=$('#suscribir .yt-cta-middle h2'); if(yH2) yH2.textContent=t.ytCtaH2;
+    const yP=$('#suscribir .yt-cta-middle p'); if(yP) yP.textContent=t.ytCtaP;
+    const yBtns=$$('#suscribir .yt-cta-btns .btn'); if(yBtns[0]) yBtns[0].textContent=t.ytCtaBtn1; if(yBtns[1]) yBtns[1].textContent=t.ytCtaBtn2;
+    const ySL=$('.yt-stat-label'); if(ySL) ySL.textContent=t.ytStatLabel;
+
+    // Footer
+    const fBP=$('.footer-brand p'); if(fBP) fBP.textContent=t.footerBrandP;
+    const fCols=$$('.footer-col');
+    if(fCols[0]){ const h=fCols[0].querySelector('h4'); if(h) h.textContent=t.footerNavH4; const ls=fCols[0].querySelectorAll('a'); ['footerNavInicio','footerNavCanal','footerNavSobre','footerNavRecursos','footerNavComunidad'].forEach((k,i)=>{ if(ls[i]) ls[i].textContent=t[k]; }); }
+    if(fCols[1]){ const h=fCols[1].querySelector('h4'); if(h) h.textContent=t.footerProjH4; const ls=fCols[1].querySelectorAll('a'); if(ls[0]) ls[0].textContent=t.footerProjComunidad; if(ls[1]) ls[1].textContent=t.footerProjFormacion; }
+    if(fCols[2]){ const h=fCols[2].querySelector('h4'); if(h) h.textContent=t.footerContactH4; const ls=fCols[2].querySelectorAll('a'); if(ls[1]) ls[1].textContent=t.footerContactForm; }
+    const fBot=$('.footer-bottom p'); if(fBot) fBot.textContent=t.footerBottom;
+    const fSec=$('.footer-trust-item'); if(fSec) fSec.textContent=t.footerSecure;
+
+    currentLang = lang;
+    localStorage.setItem('edtrainer-lang', lang);
+  }
+
+  function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
+
+  if (currentLang === 'en') applyLang('en');
 
   // Formspree handler
   async function handleFormSubmit(e) {
