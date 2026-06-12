@@ -799,6 +799,12 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .form-btn:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,216,196,0.45); }
 .form-btn:active { transform: translateY(0); }
+.form-consent {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12.5px; color: var(--dim); line-height: 1.6; cursor: pointer;
+}
+.form-consent input { margin-top: 3px; accent-color: var(--teal); flex-shrink: 0; }
+.form-consent a { color: var(--teal); text-decoration: underline; }
 .form-ok {
   display: none; padding: 16px; background: rgba(61,216,196,0.1);
   border: 1px solid rgba(61,216,196,0.3); border-radius: var(--radius-sm);
@@ -1193,6 +1199,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   <a href="#sobre">Sobre mí</a>
   <a href="#recursos">Recursos</a>
   <a href="#testimonios">Comunidad</a>
+  <a href="#asesoramiento">Asesoramiento</a>
   <a href="#contacto">Contacto</a>
   <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="nav-mobile-yt">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
@@ -1306,7 +1313,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <div class="autor-card">
           <div class="autor-card-top">
             <div class="autor-photo">
-              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img" loading="lazy" decoding="async" width="400" height="400">
+              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img" loading="lazy" decoding="async" width="600" height="750">
             </div>
             <h3 class="autor-name">Luis Alfonso Ruiz</h3>
             <div class="autor-role">EdTrainer TV</div>
@@ -1383,7 +1390,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="100_Formas_de_Usar_Gemini.png" alt="Portada del curso 100+ formas de usar Gemini en Educación de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
+          <img src="gemini-100-formas.jpg" alt="Portada del curso 100+ formas de usar Gemini en Educación de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">100+ formas de usar Gemini en Educación</h3>
@@ -1396,7 +1403,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-1" style="transition-delay:0.12s">
         <div class="series-img-wrap">
           <div class="series-label">Curso</div>
-          <img src="Bienestar_emocional.png" alt="Portada del curso Gramática del Bienestar Emocional de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
+          <img src="bienestar-emocional.jpg" alt="Portada del curso Gramática del Bienestar Emocional de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">Gramática del Bienestar Emocional</h3>
@@ -1409,7 +1416,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in fade-in--delay-2" style="transition-delay:0.24s">
         <div class="series-img-wrap">
           <div class="series-label">Serie</div>
-          <img src="Google_Antigravity.png" alt="Portada de la serie Google Antigravity de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
+          <img src="google-antigravity.jpg" alt="Portada de la serie Google Antigravity de EdTrainer TV" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">Google Antigravity</h3>
@@ -1422,7 +1429,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <article class="series-card fade-in" style="transition-delay:0.36s">
         <div class="series-img-wrap">
           <div class="series-label">Taller</div>
-          <img src="claude-code-video1-.png" alt="Portada del Taller Anthropic — De 0 a tu primera web con Claude Code" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
+          <img src="taller-anthropic.jpg" alt="Portada del Taller Anthropic — De 0 a tu primera web con Claude Code" class="series-thumb" loading="lazy" decoding="async" width="800" height="450">
         </div>
         <div class="series-body">
           <h3 class="series-title">Taller Anthropic</h3>
@@ -1732,13 +1739,13 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
               <div class="contact-link-val">edtrainertv@gmail.com</div>
             </div>
           </a>
-          <a href="#" class="contact-link">
+          <div class="contact-link">
             <div class="contact-link-icon">📍</div>
             <div>
               <div class="contact-link-lbl">Ubicación</div>
               <div class="contact-link-val">Madrid, España (y online)</div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -1773,6 +1780,12 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
             <label class="form-l">Tu Mensaje</label>
             <textarea name="mensaje" class="form-t" placeholder="Cuéntame brevemente sobre tu proyecto o necesidades formativas..." required></textarea>
           </div>
+          <div class="form-g">
+            <label class="form-consent">
+              <input type="checkbox" name="consentimiento" value="aceptado" required>
+              <span id="form-consent-text">He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</span>
+            </label>
+          </div>
           <button type="submit" class="form-btn" id="form-submit-btn">
             <span id="form-btn-text">Enviar Mensaje</span>
             <span id="form-btn-loading" style="display:none">Enviando…</span>
@@ -1798,7 +1811,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <p>Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.</p>
         <div class="yt-cta-btns">
           <a href="https://www.youtube.com/@EdTrainerTV" target="_blank" rel="noopener noreferrer" class="btn btn-yt">Suscribirme al canal</a>
-          <a href="#recursos" class="btn btn-ghost">Ver vídeos populares</a>
+          <a href="#canal" class="btn btn-ghost">Ver vídeos populares</a>
         </div>
       </div>
       <div class="yt-cta-stats">
@@ -1857,11 +1870,11 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2024 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.</p>
+      <p>&copy; 2026 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.</p>
       <div class="footer-trust">
         <span class="footer-trust-item">🔒 Sitio Seguro</span>
-        <a href="#">Aviso Legal</a>
-        <a href="#">Privacidad</a>
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Privacidad</a>
       </div>
     </div>
   </div>
@@ -2102,12 +2115,13 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       formTitle:'Envía tu propuesta', formNombreLbl:'Nombre', formNombrePh:'Ej: Laura Gómez', formInstLbl:'Institución / Colegio', formInstPh:'Ej: Colegio San José', formEmailLbl:'Email Profesional', formEmailPh:'laura@colegio.edu', formMotivoLbl:'Motivo de contacto',
       formMotivoOpts:['Formación in-company (Claustro)','Ponencia / Keynote','Consultoría estratégica','Otras colaboraciones','Asesoramiento para YouTube / Canal de contenido'],
       formMsgLbl:'Tu Mensaje', formMsgPh:'Cuéntame brevemente sobre tu proyecto o necesidades formativas...', formBtnText:'Enviar Mensaje', formOkMsg:'¡Mensaje enviado con éxito! Te responderé en 24-48 horas hábiles.',
+      formConsent:'He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>.',
       ytCtaH2:'No te pierdas los nuevos vídeos', ytCtaP:'Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.', ytCtaBtn1:'Suscribirme al canal', ytCtaBtn2:'Ver vídeos populares', ytStatLabel:'Suscriptores actuales',
       footerBrandP:'Acompañando a docentes e instituciones educativas en la integración ética, estratégica y eficaz de la tecnología y la Inteligencia Artificial.',
       footerNavH4:'Navegación', footerNavInicio:'Inicio', footerNavCanal:'Canal YouTube', footerNavSobre:'Sobre mí', footerNavRecursos:'Recursos gratuitos', footerNavComunidad:'Comunidad',
       footerProjH4:'Proyectos', footerProjComunidad:'Comunidad EdTrainer', footerProjFormacion:'Formación In-Company',
       footerContactH4:'Contacto', footerContactForm:'Formulario web',
-      footerBottom:'© 2024 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.', footerSecure:'🔒 Sitio Seguro', langBtnLabel:'EN'
+      footerBottom:'© 2026 EdTrainer TV - Luis Alfonso Ruiz. Todos los derechos reservados.', footerSecure:'🔒 Sitio Seguro', langBtnLabel:'EN'
     },
     en: {
       navCanal:'Channel', navSobre:'About', navRecursos:'Resources', navComunidad:'Community', navAsesoramiento:'Consulting', navContacto:'Contact',
@@ -2152,12 +2166,13 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       formTitle:'Send your proposal', formNombreLbl:'Name', formNombrePh:'E.g.: Laura Gómez', formInstLbl:'Institution / School', formInstPh:"E.g.: Saint Joseph's School", formEmailLbl:'Professional Email', formEmailPh:'laura@school.edu', formMotivoLbl:'Reason for contact',
       formMotivoOpts:['In-company Training (Staff)','Talk / Keynote','Strategic Consulting','Other collaborations','YouTube / Content Channel Advisory'],
       formMsgLbl:'Your Message', formMsgPh:'Briefly tell me about your project or training needs...', formBtnText:'Send Message', formOkMsg:'Message sent successfully! I will reply within 24-48 business hours.',
+      formConsent:'I have read and accept the <a href="privacidad.html" target="_blank" rel="noopener noreferrer">privacy policy</a>.',
       ytCtaH2:"Don't miss the new videos", ytCtaP:"Tips, tutorials and analyses of tech tools designed exclusively to make teachers' lives easier.", ytCtaBtn1:'Subscribe to the channel', ytCtaBtn2:'Watch popular videos', ytStatLabel:'Current subscribers',
       footerBrandP:'Supporting teachers and educational institutions in the ethical, strategic and effective integration of technology and Artificial Intelligence.',
       footerNavH4:'Navigation', footerNavInicio:'Home', footerNavCanal:'YouTube Channel', footerNavSobre:'About me', footerNavRecursos:'Free resources', footerNavComunidad:'Community',
       footerProjH4:'Projects', footerProjComunidad:'EdTrainer Community', footerProjFormacion:'In-Company Training',
       footerContactH4:'Contact', footerContactForm:'Web form',
-      footerBottom:'© 2024 EdTrainer TV - Luis Alfonso Ruiz. All rights reserved.', footerSecure:'🔒 Secure Site', langBtnLabel:'ES'
+      footerBottom:'© 2026 EdTrainer TV - Luis Alfonso Ruiz. All rights reserved.', footerSecure:'🔒 Secure Site', langBtnLabel:'ES'
     }
   };
 
@@ -2176,7 +2191,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
 
     // Nav mobile
     const mobileLinks = $$('.nav-mobile a:not(.nav-mobile-yt)');
-    ['navCanal','navSobre','navRecursos','navComunidad','navContacto'].forEach((k,i) => { if(mobileLinks[i]) mobileLinks[i].textContent = t[k]; });
+    ['navCanal','navSobre','navRecursos','navComunidad','navAsesoramiento','navContacto'].forEach((k,i) => { if(mobileLinks[i]) mobileLinks[i].textContent = t[k]; });
 
     // Lang buttons
     $$('[id^="lang-btn"]').forEach(btn => { btn.textContent = t.langBtnLabel; });
@@ -2287,6 +2302,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     const fTa=$('.form-t'); if(fTa) fTa.placeholder=t.formMsgPh;
     const fBt=document.getElementById('form-btn-text'); if(fBt) fBt.textContent=t.formBtnText;
     const fOk=document.getElementById('form-contacto-ok'); if(fOk) fOk.textContent=t.formOkMsg;
+    const fCons=document.getElementById('form-consent-text'); if(fCons) fCons.innerHTML=t.formConsent;
 
     // YouTube CTA
     const yH2=$('#suscribir .yt-cta-middle h2'); if(yH2) yH2.textContent=t.ytCtaH2;
