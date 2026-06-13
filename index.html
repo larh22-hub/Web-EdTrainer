@@ -625,6 +625,39 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .btn-dl:hover { background: rgba(61,216,196,0.2); border-color: var(--teal); }
 .btn-dl--link { text-align: center; text-decoration: none; display: block; }
 
+/* Modal de captura (lead magnet) */
+.dl-modal {
+  position: fixed; inset: 0; z-index: 300;
+  display: none; align-items: center; justify-content: center; padding: 24px;
+}
+.dl-modal.open { display: flex; }
+.dl-modal-backdrop {
+  position: absolute; inset: 0; background: rgba(3,8,6,0.78);
+  backdrop-filter: blur(6px);
+}
+.dl-modal-card {
+  position: relative; z-index: 1; width: 100%; max-width: 440px;
+  background: var(--bg2); border: 1px solid var(--teal-border);
+  border-radius: var(--radius-xl); padding: 40px 36px;
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  animation: dl-pop 0.3s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes dl-pop { 0% { opacity: 0; transform: translateY(16px) scale(0.97); } 100% { opacity: 1; transform: none; } }
+.dl-modal-close {
+  position: absolute; top: 14px; right: 16px;
+  background: none; border: none; color: var(--dim); font-size: 26px;
+  line-height: 1; cursor: pointer; transition: color 0.2s; padding: 4px;
+}
+.dl-modal-close:hover { color: var(--teal); }
+.dl-modal-icon { display: flex; color: var(--teal); margin-bottom: 16px; }
+.dl-modal-title { font-family: var(--font-serif); font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+.dl-modal-desc { font-size: 14px; color: var(--dim); line-height: 1.7; margin-bottom: 24px; }
+.dl-modal-card .form-i { margin-bottom: 16px; }
+.dl-modal-card .form-consent { margin-bottom: 20px; }
+.dl-modal-err {
+  font-size: 13px; color: #ff7777; margin-top: 14px; text-align: center;
+}
+
 /* ═══════════════════════════════════════════
    SOCIAL PROOF / TESTIMONIALES
 ════════════════════════════════════════════ */
@@ -1426,7 +1459,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Descubre cómo comunicarte eficazmente con ChatGPT y Claude para generar rúbricas, programaciones y más.</p>
-          <a href="100_Prompts_Educativos_EdTrainerTV.pdf" download="100_Prompts_Educativos_EdTrainerTV.pdf" class="btn-dl btn-dl--link">Descargar PDF</a>
+          <button type="button" class="btn-dl btn-dl--gate" data-file="100_Prompts_Educativos_EdTrainerTV.pdf" data-dlname="100_Prompts_Educativos_EdTrainerTV.pdf">Descargar PDF</button>
         </div>
       </div>
 
@@ -1438,7 +1471,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Organiza mejor la conexión y configuración de NotebookLM con una plantilla MCP Server pensada para facilitar integraciones, estructurar el contexto de trabajo y aprovechar esta herramienta de forma más avanzada y eficiente.</p>
-          <a href="NotebookLM_MCP.pdf" download="NotebookLM_MCP.pdf" class="btn-dl btn-dl--link">Descargar plantilla</a>
+          <button type="button" class="btn-dl btn-dl--gate" data-file="NotebookLM_MCP.pdf" data-dlname="NotebookLM_MCP.pdf">Descargar plantilla</button>
         </div>
       </div>
 
@@ -1450,7 +1483,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         </div>
         <div class="recurso-body">
           <p class="recurso-desc">Prepara tu certificación oficial con esta guía detallada sobre el uso de la IA de Google en el entorno educativo.</p>
-          <a href="Guia-del-Examen-Educador-Certificado.pdf" download="Guia-Gemini-Educator-EdTrainer.pdf" class="btn-dl btn-dl--link">Descargar Guía</a>
+          <button type="button" class="btn-dl btn-dl--gate" data-file="Guia-del-Examen-Educador-Certificado.pdf" data-dlname="Guia-Gemini-Educator-EdTrainer.pdf">Descargar Guía</button>
         </div>
       </div>
     </div>
@@ -1712,6 +1745,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       <div class="form-card fade-in fade-in--delay-1">
         <h3 class="form-title">Envía tu propuesta</h3>
         <form action="https://formspree.io/f/xnjoooqj" method="POST" onsubmit="handleFormSubmit(event)">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <div class="form-row">
             <div class="form-g">
               <label class="form-l">Nombre</label>
@@ -1781,6 +1815,30 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     </div>
   </div>
 </section>
+
+<!-- ════════════ MODAL DESCARGA (LEAD MAGNET) ════════════ -->
+<div class="dl-modal" id="dl-modal" aria-hidden="true">
+  <div class="dl-modal-backdrop" data-close></div>
+  <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-modal-title">
+    <button type="button" class="dl-modal-close" data-close aria-label="Cerrar">&times;</button>
+    <div class="dl-modal-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+    <h3 class="dl-modal-title" id="dl-modal-title">Descarga tu recurso gratuito</h3>
+    <p class="dl-modal-desc" id="dl-modal-desc">Déjame tu email y empieza la descarga al instante. Te avisaré de vez en cuando de nuevos recursos. Sin spam.</p>
+    <form id="dl-form" novalidate>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+      <input type="email" name="email" class="form-i" placeholder="tu@email.com" autocomplete="email" required>
+      <label class="form-consent">
+        <input type="checkbox" name="consentimiento" value="aceptado" required>
+        <span id="dl-consent-text">Acepto recibir este recurso y novedades ocasionales de EdTrainer TV, y la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>. Puedo darme de baja cuando quiera.</span>
+      </label>
+      <button type="submit" class="form-btn" id="dl-submit-btn">
+        <span id="dl-btn-text">Descargar ahora</span>
+        <span id="dl-btn-loading" style="display:none">Enviando…</span>
+      </button>
+      <p class="dl-modal-err" id="dl-modal-err" style="display:none">Algo ha fallado. Inténtalo de nuevo o escríbeme a <a href="mailto:edtrainertv@gmail.com" style="color:#ff7777">edtrainertv@gmail.com</a></p>
+    </form>
+  </div>
+</div>
 
 <!-- ════════════ FOOTER ════════════ -->
 </main>
@@ -2076,6 +2134,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       formMotivoOpts:['Formación in-company (Claustro)','Ponencia / Keynote','Consultoría estratégica','Otras colaboraciones','Asesoramiento para YouTube / Canal de contenido'],
       formMsgLbl:'Tu Mensaje', formMsgPh:'Cuéntame brevemente sobre tu proyecto o necesidades formativas...', formBtnText:'Enviar Mensaje', formOkMsg:'¡Mensaje enviado con éxito! Te responderé en 24-48 horas hábiles.',
       formConsent:'He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>.',
+      dlTitle:'Descarga tu recurso gratuito', dlDesc:'Déjame tu email y empieza la descarga al instante. Te avisaré de vez en cuando de nuevos recursos. Sin spam.', dlConsent:'Acepto recibir este recurso y novedades ocasionales de EdTrainer TV, y la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>. Puedo darme de baja cuando quiera.', dlBtn:'Descargar ahora',
       ytCtaH2:'No te pierdas los nuevos vídeos', ytCtaP:'Consejos, tutoriales y análisis de herramientas tech pensadas exclusivamente para facilitar la vida del docente.', ytCtaBtn1:'Suscribirme al canal', ytCtaBtn2:'Ver vídeos populares', ytStatLabel:'Suscriptores actuales',
       footerBrandP:'Acompañando a docentes e instituciones educativas en la integración ética, estratégica y eficaz de la tecnología y la Inteligencia Artificial.',
       footerNavH4:'Navegación', footerNavInicio:'Inicio', footerNavCanal:'Canal YouTube', footerNavSobre:'Sobre mí', footerNavRecursos:'Recursos gratuitos', footerNavComunidad:'Comunidad',
@@ -2127,6 +2186,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       formMotivoOpts:['In-company Training (Staff)','Talk / Keynote','Strategic Consulting','Other collaborations','YouTube / Content Channel Advisory'],
       formMsgLbl:'Your Message', formMsgPh:'Briefly tell me about your project or training needs...', formBtnText:'Send Message', formOkMsg:'Message sent successfully! I will reply within 24-48 business hours.',
       formConsent:'I have read and accept the <a href="privacidad.html" target="_blank" rel="noopener noreferrer">privacy policy</a>.',
+      dlTitle:'Download your free resource', dlDesc:'Leave me your email and the download starts instantly. I will let you know about new resources from time to time. No spam.', dlConsent:'I agree to receive this resource and occasional updates from EdTrainer TV, and the <a href="privacidad.html" target="_blank" rel="noopener noreferrer">privacy policy</a>. I can unsubscribe anytime.', dlBtn:'Download now',
       ytCtaH2:"Don't miss the new videos", ytCtaP:"Tips, tutorials and analyses of tech tools designed exclusively to make teachers' lives easier.", ytCtaBtn1:'Subscribe to the channel', ytCtaBtn2:'Watch popular videos', ytStatLabel:'Current subscribers',
       footerBrandP:'Supporting teachers and educational institutions in the ethical, strategic and effective integration of technology and Artificial Intelligence.',
       footerNavH4:'Navigation', footerNavInicio:'Home', footerNavCanal:'YouTube Channel', footerNavSobre:'About me', footerNavRecursos:'Free resources', footerNavComunidad:'Community',
@@ -2264,6 +2324,12 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     const fOk=document.getElementById('form-contacto-ok'); if(fOk) fOk.textContent=t.formOkMsg;
     const fCons=document.getElementById('form-consent-text'); if(fCons) fCons.innerHTML=t.formConsent;
 
+    // Modal descarga
+    const dlT=document.getElementById('dl-modal-title'); if(dlT) dlT.textContent=t.dlTitle;
+    const dlD=document.getElementById('dl-modal-desc'); if(dlD) dlD.textContent=t.dlDesc;
+    const dlC=document.getElementById('dl-consent-text'); if(dlC) dlC.innerHTML=t.dlConsent;
+    const dlB=document.getElementById('dl-btn-text'); if(dlB) dlB.textContent=t.dlBtn;
+
     // YouTube CTA
     const yH2=$('#suscribir .yt-cta-middle h2'); if(yH2) yH2.textContent=t.ytCtaH2;
     const yP=$('#suscribir .yt-cta-middle p'); if(yP) yP.textContent=t.ytCtaP;
@@ -2324,6 +2390,73 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       btnIcon.style.display = 'inline';
     }
   }
+
+  // ═══ Descarga con captura de email (lead magnet) ═══
+  (function() {
+    const modal = document.getElementById('dl-modal');
+    const form = document.getElementById('dl-form');
+    if (!modal || !form) return;
+    let pendingFile = null, pendingName = '';
+
+    function openModal(file, dlname, title) {
+      pendingFile = file; pendingName = title || dlname;
+      document.getElementById('dl-modal-err').style.display = 'none';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => { const i = form.querySelector('input[type=email]'); if (i) i.focus(); }, 60);
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      form.reset();
+    }
+
+    document.querySelectorAll('.btn-dl--gate').forEach(b => {
+      b.addEventListener('click', () => {
+        const card = b.closest('.recurso-card');
+        const title = card ? card.querySelector('.recurso-title').textContent.trim() : '';
+        openModal(b.getAttribute('data-file'), b.getAttribute('data-dlname'), title);
+      });
+    });
+    modal.addEventListener('click', e => { if (e.target.hasAttribute('data-close')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+    function triggerDownload(file) {
+      const a = document.createElement('a');
+      a.href = file; a.download = file;
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const submitBtn = document.getElementById('dl-submit-btn');
+      const txt = document.getElementById('dl-btn-text');
+      const load = document.getElementById('dl-btn-loading');
+      const err = document.getElementById('dl-modal-err');
+      submitBtn.disabled = true; txt.style.display = 'none'; load.style.display = 'inline'; err.style.display = 'none';
+      try {
+        const data = new FormData();
+        data.append('email', form.querySelector('input[type=email]').value);
+        data.append('recurso', pendingName);
+        data.append('tipo', 'Descarga de recurso (suscripción)');
+        data.append('_subject', 'Nueva descarga + suscripción: ' + pendingName);
+        const r = await fetch('https://formspree.io/f/xnjoooqj', {
+          method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (r.ok) {
+          triggerDownload(pendingFile);
+          closeModal();
+        } else {
+          err.style.display = 'block';
+        }
+      } catch(e2) {
+        err.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false; txt.style.display = 'inline'; load.style.display = 'none';
+      }
+    });
+  })();
 </script>
 <button id="back-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script defer src="/_vercel/insights/script.js"></script>
