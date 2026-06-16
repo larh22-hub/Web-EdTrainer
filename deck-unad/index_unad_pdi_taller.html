@@ -120,6 +120,9 @@
   /* CTA de LinkedIn (mismo patrón que feedback-cta, en azul LinkedIn) */
   .feedback-cta.linkedin{background:linear-gradient(100deg,#0a66c2,#0a4f99);box-shadow:0 16px 34px -16px rgba(10,102,194,.6);margin-top:18px;}
   .feedback-cta.linkedin .fb-go{color:#0a4f99;}
+  /* slide de diagnóstico en vivo — iframe a pantalla completa */
+  .live-slide{padding:0;}
+  .live-slide iframe{flex:1;width:100%;border:0;display:block;background:var(--page-white);}
   .thanks-row{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;}
   .contact-card{display:flex;align-items:center;gap:22px;background:#fff;border:1px solid var(--border-light);border-radius:18px;padding:26px 34px;box-shadow:var(--shadow-card);text-decoration:none;}
   .contact-card .cl{font-size:24px;color:var(--text-subtle);text-transform:uppercase;letter-spacing:.07em;font-weight:500;}
@@ -199,8 +202,13 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 04 · PREGUNTA 1 ============ -->
-  <section class="slide s1" data-label="P1 · ¿Qué quiero conseguir?" data-screen-label="04">
+  <!-- ============ 04 · DIAGNÓSTICO EN VIVO (dashboard del formulario) ============ -->
+  <section class="slide live-slide" data-label="Diagnóstico en vivo" data-screen-label="04">
+    <iframe src="diagnostico-live.html" title="Diagnóstico del taller en tiempo real" loading="eager"></iframe>
+  </section>
+
+  <!-- ============ 05 · PREGUNTA 1 ============ -->
+  <section class="slide s1" data-label="P1 · ¿Qué quiero conseguir?" data-screen-label="05">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">filter_1</span>Pregunta 1 de 3</span></div>
     </div>
@@ -221,8 +229,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 05 · PREGUNTA 2 ============ -->
-  <section class="slide s2" data-label="P2 · ¿Qué herramienta?" data-screen-label="05">
+  <!-- ============ 06 · PREGUNTA 2 ============ -->
+  <section class="slide s2" data-label="P2 · ¿Qué herramienta?" data-screen-label="06">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">filter_2</span>Pregunta 2 de 3</span></div>
     </div>
@@ -251,8 +259,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 06 · PREGUNTA 3 (MVP) ============ -->
-  <section class="slide s1" data-label="P3 · El producto mínimo útil" data-screen-label="06" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
+  <!-- ============ 07 · PREGUNTA 3 (MVP) ============ -->
+  <section class="slide s1" data-label="P3 · El producto mínimo útil" data-screen-label="07" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">filter_3</span>Pregunta 3 de 3</span></div>
     </div>
@@ -281,8 +289,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 07 · USO RESPONSABLE ============ -->
-  <section class="slide s1" data-label="Uso responsable" data-screen-label="07">
+  <!-- ============ 08 · USO RESPONSABLE ============ -->
+  <section class="slide s1" data-label="Uso responsable" data-screen-label="08">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">verified_user</span>Uso responsable</span><h2 class="s-title sm">Con criterio profesional, no a ciegas</h2></div>
     </div>
@@ -298,8 +306,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 08 · MÉTODO PARTS ============ -->
-  <section class="slide s2 parts-slide" data-label="El método PARTS" data-screen-label="08">
+  <!-- ============ 09 · MÉTODO PARTS ============ -->
+  <section class="slide s2 parts-slide" data-label="El método PARTS" data-screen-label="09">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">tune</span>Cómo se construye un buen prompt</span><h2 class="s-title sm">El método PARTS</h2></div>
     </div>
@@ -317,8 +325,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 09 · ANTES / DESPUÉS + CALIDAD ============ -->
-  <section class="slide s1" data-label="De vago a útil" data-screen-label="09">
+  <!-- ============ 10 · ANTES / DESPUÉS + CALIDAD ============ -->
+  <section class="slide s1" data-label="De vago a útil" data-screen-label="10">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">compare_arrows</span>El efecto PARTS</span><h2 class="s-title sm">De una petición vaga a un producto útil</h2></div>
     </div>
@@ -342,8 +350,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 10 · DIAGNÓSTICO COLECTIVO ============ -->
-  <section class="slide s1" data-label="Diagnóstico colectivo" data-screen-label="10">
+  <!-- ============ 11 · DIAGNÓSTICO COLECTIVO ============ -->
+  <section class="slide s1" data-label="Diagnóstico colectivo" data-screen-label="11">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">groups</span>Diagnóstico</span><h2 class="s-title sm">Ronda de diagnóstico</h2></div>
       <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:15 – 0:28</span>
@@ -360,8 +368,8 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 11 · DEMO EN VIVO ============ -->
-  <section class="slide s2" data-label="Demo de arranque" data-screen-label="11">
+  <!-- ============ 12 · DEMO EN VIVO ============ -->
+  <section class="slide s2" data-label="Demo de arranque" data-screen-label="12">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">cast</span>Demo de arranque</span><h2 class="s-title sm">Trabajamos un proyecto juntos</h2></div>
       <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:28 – 0:45</span>
@@ -390,8 +398,8 @@ tono académico y claro [T]. 4 criterios,
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 12 · TRABAJO AUTÓNOMO ============ -->
-  <section class="slide s1" data-label="Trabajo autónomo" data-screen-label="12" style="--accent:#e37400;--accent-soft:#fef7e0;--accent-border:#fde293;">
+  <!-- ============ 13 · TRABAJO AUTÓNOMO ============ -->
+  <section class="slide s1" data-label="Trabajo autónomo" data-screen-label="13" style="--accent:#e37400;--accent-soft:#fef7e0;--accent-border:#fde293;">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">construction</span>Trabajo autónomo</span><h2 class="s-title sm">Tu turno. Avanza tu proyecto.</h2></div>
       <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:45 – 1:45</span>
@@ -411,8 +419,8 @@ tono académico y claro [T]. 4 criterios,
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 13 · PROMPTS DE REFERENCIA ============ -->
-  <section class="slide s1" data-label="Referencia de prompts" data-screen-label="13">
+  <!-- ============ 14 · PROMPTS DE REFERENCIA ============ -->
+  <section class="slide s1" data-label="Referencia de prompts" data-screen-label="14">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">terminal</span>Referencia de prompts · PDI</span><h2 class="s-title sm">Puntos de partida, no fórmulas cerradas</h2></div>
     </div>
@@ -441,8 +449,8 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 14 · PUESTA EN COMÚN ============ -->
-  <section class="slide s1" data-label="Puesta en común" data-screen-label="14" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
+  <!-- ============ 15 · PUESTA EN COMÚN ============ -->
+  <section class="slide s1" data-label="Puesta en común" data-screen-label="15" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">screen_share</span>Puesta en común</span><h2 class="s-title sm">¿Qué hemos producido?</h2></div>
       <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:45 – 1:55</span>
@@ -458,8 +466,8 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 15 · CIERRE + COMPROMISO ============ -->
-  <section class="slide s2" data-label="Cierre y compromiso" data-screen-label="15">
+  <!-- ============ 16 · CIERRE + COMPROMISO ============ -->
+  <section class="slide s2" data-label="Cierre y compromiso" data-screen-label="16">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">emoji_events</span>Cierre</span><h2 class="s-title sm">Compromiso y siguiente paso</h2></div>
       <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:55 – 2:00</span>
@@ -480,8 +488,8 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 16 · GRACIAS ============ -->
-  <section class="slide s2 title-slide" data-label="Gracias" data-screen-label="16">
+  <!-- ============ 17 · GRACIAS ============ -->
+  <section class="slide s2 title-slide" data-label="Gracias" data-screen-label="17">
     <span class="session-kicker"><span class="material-symbols-outlined">waving_hand</span>¡Gracias por vuestra participación!</span>
     <h1 class="big-title">Gracias</h1>
     <p class="course">Taller de proyectos reales · PDI · Universidad Nacional Abierta y a Distancia</p>
@@ -524,8 +532,9 @@ emergentes, brechas de investigación y las
 <script type="application/json" id="speaker-notes">
 [
 "APERTURA — Verifica audio. Pide en el chat: \"Hola + área/disciplina\" para activar la participación desde el inicio. Esta sesión no tiene temario fijo: tú eres el mentor, los proyectos de ellos son el contenido. Horario Colombia 07:00–09:00 / España 14:00–16:00.",
-"PREGUNTA DE APERTURA al chat: \"¿Habéis traído hoy un proyecto concreto en mente, o llegáis sin saber qué vais a trabajar?\" No hay respuesta incorrecta: el objetivo es situar el nivel de preparación del grupo. Si alguien no tiene proyecto, hay ejemplos preparados (slide 10).",
+"PREGUNTA DE APERTURA al chat: \"¿Habéis traído hoy un proyecto concreto en mente, o llegáis sin saber qué vais a trabajar?\" No hay respuesta incorrecta: el objetivo es situar el nivel de preparación del grupo. Si alguien no tiene proyecto, hay ejemplos preparados (slide 11).",
 "Las tres preguntas son el esqueleto de toda la sesión. Vuelve a ellas cada vez que ayudes a alguien: siempre son el filtro. No hace falta que las memoricen, solo que las tengan de referencia mientras trabajan.",
+"DIAGNÓSTICO EN VIVO — Tras escanear el QR, deja este panel visible mientras responden: las respuestas del formulario aparecen aquí en tiempo real (se actualiza solo cada 20 s; también puedes pulsar 'Actualizar'). Úsalo para situar al grupo de un vistazo: cuántos han respondido, experiencia media con IA, qué quieren producir y qué les frena. Si está vacío, es que aún no han enviado el formulario.",
 "PREGUNTA AL GRUPO: \"¿Alguien tiene ya claro qué producto quiere tener al salir de hoy?\" Si responden algo vago (\"trabajar con IA para la investigación\"), aprieta: \"¿Y eso se convierte en qué documento exactamente?\"",
 "DATO: la diferencia entre NotebookLM y Gemini no es de calidad, es de propósito. NotebookLM no alucina porque solo sabe lo que tú le das; Gemini sabe todo internet pero puede inventar referencias. PREGUNTA: \"¿Alguien tiene ya claro cuál de las dos necesita?\"",
 "PREGUNTA AL GRUPO: \"¿Cuál es la parte de tu proyecto que, si la tuvieras resuelta, más alivio te daría?\" Esa respuesta suele ser exactamente el MVP. Ayúdales a reducir alcance sin sentir que hacen menos: están siendo más estratégicos.",
