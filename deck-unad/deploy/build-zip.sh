@@ -23,7 +23,9 @@ cp "$HERE/Dockerfile" "$HERE/nginx.conf" "$HERE/README.md" "$BUILD/"
 
 ZIP="$OUT_DIR/$NAME-dokploy.zip"
 rm -f "$ZIP"
-( cd "$TMP" && zip -r -q "$ZIP" "$NAME" -x '*.DS_Store' )
+# Dokploy busca el Dockerfile en la RAÍZ del ZIP: empaquetamos el contenido
+# de $BUILD (Dockerfile, nginx.conf, README.md, site/) sin carpeta contenedora.
+( cd "$BUILD" && zip -r -q "$ZIP" . -x '*.DS_Store' )
 rm -rf "$TMP"
 
 echo "ZIP creado: $ZIP"
