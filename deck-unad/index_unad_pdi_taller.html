@@ -57,6 +57,18 @@
   .redu .ri s{color:var(--text-subtle);text-decoration:none;}
   .redu .ri b{color:var(--accent);font-weight:500;}
 
+  /* slide 3 — compacta los pasos para dejar sitio al time-badge */
+  .diag-slide .steps{gap:16px;}
+  .diag-slide .step{padding:22px 30px;}
+  .diag-slide .diag-card{padding:26px 32px;gap:14px;}
+
+  /* PARTS — fila compacta para que las 5 piezas + tip quepan sin solaparse */
+  .parts-slide .parts{gap:11px;}
+  .parts-slide .parts.compact .part{padding:8px 30px;}
+  .parts-slide .parts.compact .letter{width:54px;height:54px;font-size:29px;}
+  .parts-slide .part .pk{width:210px;}
+  .parts-slide .part .pk .pn{font-size:27px;}
+
   /* tip variants */
   .tip.amber{background:#fef7e0;border-color:#fde293;color:#9a6700;}
   .tip.green{background:var(--mint-glaze);border-color:#b6dcc0;color:var(--educator-green);}
@@ -127,7 +139,7 @@
     <h1 class="big-title">Taller de<br />proyectos reales</h1>
     <p class="course">Avanza lo que tienes entre manos con IA y criterio profesional · PDI · Universidad Nacional Abierta y a Distancia</p>
     <div class="agenda">
-      <div class="ai" style="--accent:#1a73e8;border-top:4px solid #1a73e8;"><span class="n">1</span><span class="l">Las 3 preguntas que ordenan tu proyecto</span></div>
+      <div class="ai" style="--accent:#1a73e8;border-top:4px solid #1a73e8;"><span class="n">1</span><span class="l">El método para enfocar tu proyecto con IA</span></div>
       <div class="ai" style="--accent:#188038;border-top:4px solid #188038;"><span class="n">2</span><span class="l">Diagnóstico colectivo en vivo</span></div>
       <div class="ai" style="--accent:#e37400;border-top:4px solid #e37400;"><span class="n">3</span><span class="l">Trabajo autónomo guiado (60 min)</span></div>
       <div class="ai" style="--accent:#a142f4;border-top:4px solid #a142f4;"><span class="n">4</span><span class="l">Puesta en común y compromiso</span></div>
@@ -148,21 +160,22 @@
       <div><span class="eyebrow"><span class="material-symbols-outlined">flag</span>Presentación de la sesión</span><h2 class="s-title sm">Esta sesión no es un taller de herramientas</h2></div>
     </div>
     <div class="s-body" style="gap:30px;">
-      <p class="s-sub" style="margin-top:0;">Es una sesión para <b style="color:var(--classroom-blue);font-weight:500;">avanzar proyectos universitarios reales</b> usando IA con criterio profesional.</p>
+      <p class="s-sub" style="margin-top:0;">Es una sesión para <b style="color:var(--classroom-blue);font-weight:500;">avanzar proyectos universitarios reales</b> usando IA con criterio profesional. <b style="color:var(--text-dark);font-weight:500;">Al terminar te llevas</b> una primera versión de tu producto y un método para repetirlo por tu cuenta.</p>
       <div class="grid g3">
         <div class="card" style="--accent:#d93025;--accent-soft:#fce8e6;"><span class="ic red"><span class="material-symbols-outlined">block</span></span><div class="ct">No aprenderemos herramientas</div><div class="cd">No habrá demos de funciones ni explicaciones de menús.</div></div>
         <div class="card" style="--accent:#188038;--accent-soft:#ceead6;"><span class="ic green"><span class="material-symbols-outlined">task_alt</span></span><div class="ct">Resolveremos proyectos reales</div><div class="cd">Cada uno avanza lo que tiene entre manos, con la herramienta correcta.</div></div>
         <div class="card" style="--accent:#e37400;--accent-soft:#fef7e0;"><span class="ic amber"><span class="material-symbols-outlined">track_changes</span></span><div class="ct">El resultado es un producto útil</div><div class="cd">Al terminar, cada participante se lleva una primera versión de algo real.</div></div>
       </div>
-      <div class="tip"><span class="material-symbols-outlined">push_pin</span><span><b>Lo que necesitas hoy:</b> un proyecto concreto en el que estés trabajando, o al menos una tarea pendiente que quieras resolver. Si aún no lo tienes, te ayudamos a encontrarlo.</span></div>
+      <div class="tip"><span class="material-symbols-outlined">push_pin</span><span><b>Lo que necesitas hoy:</b> un proyecto o tarea pendiente que quieras resolver (si no lo tienes, te ayudamos a encontrarlo) y acceso a <b>NotebookLM</b> y <b>Gemini</b> con tu cuenta de Google.</span></div>
     </div>
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
   <!-- ============ 03 · LAS 3 PREGUNTAS ============ -->
-  <section class="slide s1" data-label="Las 3 preguntas" data-screen-label="03">
+  <section class="slide s1 diag-slide" data-label="Las 3 preguntas" data-screen-label="03">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">quiz</span>Marco de diagnóstico</span><h2 class="s-title sm">Tres preguntas. Un proyecto que avanza.</h2></div>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:00 – 0:15</span>
     </div>
     <div class="s-body">
       <div class="diag-split">
@@ -265,11 +278,72 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 07 · DIAGNÓSTICO COLECTIVO ============ -->
-  <section class="slide s1" data-label="Diagnóstico colectivo" data-screen-label="07">
+  <!-- ============ 07 · USO RESPONSABLE ============ -->
+  <section class="slide s1" data-label="Uso responsable" data-screen-label="07">
+    <div class="s-head">
+      <div><span class="eyebrow"><span class="material-symbols-outlined">verified_user</span>Uso responsable</span><h2 class="s-title sm">Con criterio profesional, no a ciegas</h2></div>
+    </div>
+    <div class="s-body" style="gap:30px;">
+      <p class="s-sub" style="margin-top:0;">La IA acelera tu trabajo, pero la <b style="color:var(--classroom-blue);font-weight:500;">responsabilidad académica sigue siendo tuya</b>.</p>
+      <div class="grid g3">
+        <div class="card" style="--accent:#1a73e8;--accent-soft:#e8f0fe;"><span class="ic blue"><span class="material-symbols-outlined">fact_check</span></span><div class="ct">Verifica siempre</div><div class="cd">Gemini puede inventar datos o referencias: contrasta cifras y citas antes de usarlas. NotebookLM cita el documento exacto — úsalo cuando necesites trazabilidad.</div></div>
+        <div class="card" style="--accent:#d93025;--accent-soft:#fce8e6;"><span class="ic red"><span class="material-symbols-outlined">lock</span></span><div class="ct">Protege los datos</div><div class="cd">No subas datos personales de estudiantes ni información confidencial. Anonimiza cualquier documento antes de compartirlo con la IA.</div></div>
+        <div class="card" style="--accent:#188038;--accent-soft:#ceead6;"><span class="ic green"><span class="material-symbols-outlined">balance</span></span><div class="ct">Mantén la autoría</div><div class="cd">La IA es un asistente, no el autor. Revisa, edita y haz tuyo el resultado. Declara su uso cuando tu institución lo exija.</div></div>
+      </div>
+      <div class="tip amber"><span class="material-symbols-outlined">psychology</span><span><b>Regla de oro:</b> si no sabrías defender el resultado como tuyo, todavía no está listo. La IA propone; tú decides.</span></div>
+    </div>
+    <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
+  </section>
+
+  <!-- ============ 08 · MÉTODO PARTS ============ -->
+  <section class="slide s2 parts-slide" data-label="El método PARTS" data-screen-label="08">
+    <div class="s-head">
+      <div><span class="eyebrow"><span class="material-symbols-outlined">tune</span>Cómo se construye un buen prompt</span><h2 class="s-title sm">El método PARTS</h2></div>
+    </div>
+    <div class="s-body" style="gap:22px;">
+      <p class="s-sub" style="margin-top:0;">Cinco piezas que convierten una petición vaga en una instrucción que la IA ejecuta bien. Especialmente útil con Gemini.</p>
+      <div class="parts compact">
+        <div class="part"><span class="letter">P</span><div class="pk"><div class="pn">Persona</div><div class="pq">¿Qué rol adopta?</div></div><div class="pex">"Eres experto en evaluación universitaria por competencias."</div></div>
+        <div class="part"><span class="letter">A</span><div class="pk"><div class="pn">Acción</div><div class="pq">¿Qué tarea exacta?</div></div><div class="pex">"Diseña una rúbrica analítica…"</div></div>
+        <div class="part"><span class="letter">R</span><div class="pk"><div class="pn">Resultado</div><div class="pq">¿Para qué y para quién?</div></div><div class="pex">"…para la defensa de un TFM en Ciencias Sociales."</div></div>
+        <div class="part"><span class="letter">T</span><div class="pk"><div class="pn">Tono</div><div class="pq">¿Con qué estilo?</div></div><div class="pex">"Lenguaje académico, claro y sin jerga innecesaria."</div></div>
+        <div class="part"><span class="letter">S</span><div class="pk"><div class="pn">Estructura</div><div class="pq">¿En qué formato?</div></div><div class="pex">"4 criterios, 3 niveles, en tabla editable de Google Docs."</div></div>
+      </div>
+      <div class="tip"><span class="material-symbols-outlined">lightbulb</span><span><b>No necesitas las cinco siempre.</b> Persona + Acción + Estructura ya mejoran muchísimo cualquier prompt; las demás afinan el resultado.</span></div>
+    </div>
+    <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
+  </section>
+
+  <!-- ============ 09 · ANTES / DESPUÉS + CALIDAD ============ -->
+  <section class="slide s1" data-label="De vago a útil" data-screen-label="09">
+    <div class="s-head">
+      <div><span class="eyebrow"><span class="material-symbols-outlined">compare_arrows</span>El efecto PARTS</span><h2 class="s-title sm">De una petición vaga a un producto útil</h2></div>
+    </div>
+    <div class="s-body" style="gap:24px;">
+      <div class="compare">
+        <div class="pane bad">
+          <div class="ph"><span class="material-symbols-outlined">sentiment_dissatisfied</span>Prompt vago</div>
+          <div class="quote">"Hazme una rúbrica para evaluar trabajos."</div>
+          <div class="rlabel">Resultado</div>
+          <div class="result">Genérica, sin niveles claros y no aplicable a tu asignatura. Toca rehacerla casi entera.</div>
+        </div>
+        <div class="pane good">
+          <div class="ph"><span class="material-symbols-outlined">sentiment_satisfied</span>Prompt con PARTS</div>
+          <div class="quote">"Eres experto en evaluación universitaria. Diseña una rúbrica analítica para la defensa de un TFM en Ciencias Sociales, tono académico, 4 criterios y 3 niveles en tabla editable."</div>
+          <div class="rlabel">Resultado</div>
+          <div class="result"><mark>Lista para usar</mark>: criterios concretos, niveles descritos y formato editable en Docs.</div>
+        </div>
+      </div>
+      <div class="note-box" style="--accent:#188038;--accent-soft:#ceead6;--accent-border:#b6dcc0;"><div class="nb-l">¿Cómo sé que mi resultado está listo?</div><div class="chip-row" style="margin-top:4px;"><span class="chip g">Responde a lo que pedí</span><span class="chip g">Datos y citas verificados</span><span class="chip g">Lo usaría tal cual</span><span class="chip g">Formato correcto</span></div></div>
+    </div>
+    <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
+  </section>
+
+  <!-- ============ 10 · DIAGNÓSTICO COLECTIVO ============ -->
+  <section class="slide s1" data-label="Diagnóstico colectivo" data-screen-label="10">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">groups</span>Diagnóstico</span><h2 class="s-title sm">Ronda de diagnóstico</h2></div>
-      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:00 – 0:15</span>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:15 – 0:28</span>
     </div>
     <div class="s-body" style="gap:26px;">
       <p class="s-sub" style="margin-top:0;">1 minuto por persona · el formador mapea los proyectos en vivo.</p>
@@ -283,11 +357,11 @@
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 08 · DEMO EN VIVO ============ -->
-  <section class="slide s2" data-label="Demo de arranque" data-screen-label="08">
+  <!-- ============ 11 · DEMO EN VIVO ============ -->
+  <section class="slide s2" data-label="Demo de arranque" data-screen-label="11">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">cast</span>Demo de arranque</span><h2 class="s-title sm">Trabajamos un proyecto juntos</h2></div>
-      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:15 – 0:35</span>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:28 – 0:45</span>
     </div>
     <div class="s-body">
       <div class="grid g2" style="align-items:center;gap:34px;">
@@ -313,11 +387,11 @@ tono académico y claro [T]. 4 criterios,
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 09 · TRABAJO AUTÓNOMO ============ -->
-  <section class="slide s1" data-label="Trabajo autónomo" data-screen-label="09" style="--accent:#e37400;--accent-soft:#fef7e0;--accent-border:#fde293;">
+  <!-- ============ 12 · TRABAJO AUTÓNOMO ============ -->
+  <section class="slide s1" data-label="Trabajo autónomo" data-screen-label="12" style="--accent:#e37400;--accent-soft:#fef7e0;--accent-border:#fde293;">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">construction</span>Trabajo autónomo</span><h2 class="s-title sm">Tu turno. Avanza tu proyecto.</h2></div>
-      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:35 – 1:35</span>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>0:45 – 1:45</span>
     </div>
     <div class="s-body" style="gap:26px;">
       <p class="s-sub" style="margin-top:0;">60 minutos · sala única · el formador circula y atiende en directo.</p>
@@ -334,8 +408,8 @@ tono académico y claro [T]. 4 criterios,
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 10 · PROMPTS DE REFERENCIA ============ -->
-  <section class="slide s1" data-label="Referencia de prompts" data-screen-label="10">
+  <!-- ============ 13 · PROMPTS DE REFERENCIA ============ -->
+  <section class="slide s1" data-label="Referencia de prompts" data-screen-label="13">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">terminal</span>Referencia de prompts · PDI</span><h2 class="s-title sm">Puntos de partida, no fórmulas cerradas</h2></div>
     </div>
@@ -364,11 +438,11 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 11 · PUESTA EN COMÚN ============ -->
-  <section class="slide s1" data-label="Puesta en común" data-screen-label="11" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
+  <!-- ============ 14 · PUESTA EN COMÚN ============ -->
+  <section class="slide s1" data-label="Puesta en común" data-screen-label="14" style="--accent:#a142f4;--accent-soft:#f3e8fd;--accent-border:#e6d3fb;">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">screen_share</span>Puesta en común</span><h2 class="s-title sm">¿Qué hemos producido?</h2></div>
-      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:35 – 1:50</span>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:45 – 1:55</span>
     </div>
     <div class="s-body" style="gap:26px;">
       <p class="s-sub" style="margin-top:0;">2–3 voluntarios comparten pantalla · 5 minutos cada uno · el grupo comenta en el chat.</p>
@@ -381,11 +455,11 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 12 · CIERRE + COMPROMISO ============ -->
-  <section class="slide s2" data-label="Cierre y compromiso" data-screen-label="12">
+  <!-- ============ 15 · CIERRE + COMPROMISO ============ -->
+  <section class="slide s2" data-label="Cierre y compromiso" data-screen-label="15">
     <div class="s-head">
       <div><span class="eyebrow"><span class="material-symbols-outlined">emoji_events</span>Cierre</span><h2 class="s-title sm">Compromiso y siguiente paso</h2></div>
-      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:50 – 2:00</span>
+      <span class="time-badge"><span class="material-symbols-outlined">schedule</span>1:55 – 2:00</span>
     </div>
     <div class="s-body">
       <div class="grid g2" style="align-items:center;gap:34px;">
@@ -403,8 +477,8 @@ emergentes, brechas de investigación y las
     <div class="s-foot"><span><b>Taller de proyectos reales</b> · PDI · Universidad Nacional Abierta y a Distancia</span><span class="meet"><span class="material-symbols-outlined">school</span>Edvolution · Sesión 04 · 16 jun 2026</span></div>
   </section>
 
-  <!-- ============ 13 · GRACIAS ============ -->
-  <section class="slide s2 title-slide" data-label="Gracias" data-screen-label="13">
+  <!-- ============ 16 · GRACIAS ============ -->
+  <section class="slide s2 title-slide" data-label="Gracias" data-screen-label="16">
     <span class="session-kicker"><span class="material-symbols-outlined">waving_hand</span>¡Gracias por vuestra participación!</span>
     <h1 class="big-title">Gracias</h1>
     <p class="course">Taller de proyectos reales · PDI · Universidad Nacional Abierta y a Distancia</p>
@@ -438,11 +512,14 @@ emergentes, brechas de investigación y las
 <script type="application/json" id="speaker-notes">
 [
 "APERTURA — Verifica audio. Pide en el chat: \"Hola + área/disciplina\" para activar la participación desde el inicio. Esta sesión no tiene temario fijo: tú eres el mentor, los proyectos de ellos son el contenido. Horario Colombia 07:00–09:00 / España 14:00–16:00.",
-"PREGUNTA DE APERTURA al chat: \"¿Habéis traído hoy un proyecto concreto en mente, o llegáis sin saber qué vais a trabajar?\" No hay respuesta incorrecta: el objetivo es situar el nivel de preparación del grupo. Si alguien no tiene proyecto, hay ejemplos preparados (slide 7).",
+"PREGUNTA DE APERTURA al chat: \"¿Habéis traído hoy un proyecto concreto en mente, o llegáis sin saber qué vais a trabajar?\" No hay respuesta incorrecta: el objetivo es situar el nivel de preparación del grupo. Si alguien no tiene proyecto, hay ejemplos preparados (slide 10).",
 "Las tres preguntas son el esqueleto de toda la sesión. Vuelve a ellas cada vez que ayudes a alguien: siempre son el filtro. No hace falta que las memoricen, solo que las tengan de referencia mientras trabajan.",
 "PREGUNTA AL GRUPO: \"¿Alguien tiene ya claro qué producto quiere tener al salir de hoy?\" Si responden algo vago (\"trabajar con IA para la investigación\"), aprieta: \"¿Y eso se convierte en qué documento exactamente?\"",
 "DATO: la diferencia entre NotebookLM y Gemini no es de calidad, es de propósito. NotebookLM no alucina porque solo sabe lo que tú le das; Gemini sabe todo internet pero puede inventar referencias. PREGUNTA: \"¿Alguien tiene ya claro cuál de las dos necesita?\"",
 "PREGUNTA AL GRUPO: \"¿Cuál es la parte de tu proyecto que, si la tuvieras resuelta, más alivio te daría?\" Esa respuesta suele ser exactamente el MVP. Ayúdales a reducir alcance sin sentir que hacen menos: están siendo más estratégicos.",
+"USO RESPONSABLE — Insiste en los tres pilares: verificar (Gemini puede inventar, NotebookLM cita la fuente exacta), proteger datos (nada personal de estudiantes sin anonimizar) y mantener la autoría. La regla de oro: si no lo defenderías como tuyo, no está listo. No es una charla de miedo, es criterio profesional.",
+"PARTS — No lo presentes como fórmula rígida sino como checklist mental. Recalca que Persona + Acción + Estructura ya transforman cualquier prompt; las demás afinan. Lo verán aplicado en la demo y en la referencia de prompts.",
+"ANTES / DESPUÉS — El contraste vago vs PARTS es lo que más convence. Si tienes tiempo, lánzalo en vivo en Gemini con los dos prompts para que vean la diferencia real. Cierra señalando el checklist de '¿está listo?' como criterio para el trabajo autónomo.",
 "DIAGNÓSTICO COLECTIVO — la actividad más importante de la sesión. ~15 min para ~12 personas (1 min cada una). Mientras hablan, anota en un Slides compartido: Nombre · Producto · Herramienta (NB/Gemini/las dos) · MVP. Ese tablero guía toda la sesión.",
 "DEMO DE ARRANQUE — Elige el proyecto más representativo (el más compartido o el más fácil de resolver en vivo). Verbaliza el razonamiento: \"Elijo NotebookLM porque los papers son la fuente de verdad y Gemini podría inventar referencias.\" Enseñas criterio, no herramienta.",
 "TRABAJO AUTÓNOMO — Circula cada 4–5 min. Prioridad: 1) quien escribió SOS, 2) quien escribió \"listo para mi turno\", 3) rotación natural. Si alguien termina pronto: \"Revísalo con ojo crítico, ¿lo usarías tal cual?\" — eso ocupa otros 15 min fácilmente.",
