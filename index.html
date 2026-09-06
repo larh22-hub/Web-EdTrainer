@@ -597,7 +597,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
    RECURSOS
 ════════════════════════════════════════════ */
 #recursos { position: relative; z-index: 1; }
-.recursos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.recursos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .recurso-card {
   background: var(--bg2); border: 1px solid var(--teal-border);
   border-radius: var(--radius-lg); overflow: hidden;
@@ -1486,6 +1486,18 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
           <button type="button" class="btn-dl btn-dl--gate" data-file="Guia-del-Examen-Educador-Certificado.pdf" data-dlname="Guia-Gemini-Educator-EdTrainer.pdf">Descargar Guía</button>
         </div>
       </div>
+
+      <div class="recurso-card fade-in fade-in--delay-3">
+        <div class="recurso-top">
+          <span class="recurso-emoji"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h3l2 2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 8v6"/><path d="M9.5 11.5 12 14l2.5-2.5"/></svg></span>
+          <div class="recurso-type">Guía Lanzamientos</div>
+          <h3 class="recurso-title">Novedades de Google for Education · ISTE Orlando 2026</h3>
+        </div>
+        <div class="recurso-body">
+          <p class="recurso-desc">Todos los anuncios de Google for Education en ISTELive 26 reunidos y traducidos: Gemini y NotebookLM, Google Classroom, Google Workspace for Education y ChromeOS. Cada novedad con su descripción, la edición que la incluye y su disponibilidad, para saber de un vistazo qué puedes usar ya en tu centro y qué llegará pronto.</p>
+          <button type="button" class="btn-dl btn-dl--gate" data-file="Guia-Lanzamientos-ISTE-Orlando-2026.pdf" data-dlname="Guia-Lanzamientos-ISTE-Orlando-2026.pdf">Descargar Guía</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2115,6 +2127,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       rec1Type:'Guía Prompting', rec1Title:'100 Prompts Educativos para Profesores', rec1Desc:'Descubre cómo comunicarte eficazmente con ChatGPT y Claude para generar rúbricas, programaciones y más.', rec1Btn:'Descargar PDF',
       rec2Type:'Plantilla NotebookLM', rec2Title:'Plantilla MCP Server para NotebookLM', rec2Desc:'Organiza mejor la conexión y configuración de NotebookLM con una plantilla MCP Server pensada para facilitar integraciones, estructurar el contexto de trabajo y aprovechar esta herramienta de forma más avanzada y eficiente.', rec2Btn:'Descargar plantilla',
       rec3Type:'Guía PDF', rec3Title:'Guía del examen Gemini Educator Certificado', rec3Desc:'Prepara tu certificación oficial con esta guía detallada sobre el uso de la IA de Google en el entorno educativo.', rec3Btn:'Descargar Guía',
+      rec4Type:'Guía Lanzamientos', rec4Title:'Novedades de Google for Education · ISTE Orlando 2026', rec4Desc:'Todos los anuncios de Google for Education en ISTELive 26 reunidos y traducidos: Gemini y NotebookLM, Google Classroom, Google Workspace for Education y ChromeOS. Cada novedad con su descripción, la edición que la incluye y su disponibilidad, para saber de un vistazo qué puedes usar ya en tu centro y qué llegará pronto.', rec4Btn:'Descargar Guía',
       testEyebrow:'<div class="eyebrow-dot"></div>Comunidad', testH2:'Lo que dicen <em>los docentes</em>',
       test1Text:'"Gracias a los tutoriales de Luis Alfonso he conseguido integrar herramientas de IA en el desarrollo de mis unidades didácticas, ahorrando horas cada semana."', test1Name:'María G.', test1Meta:'Profesora de Secundaria',
       test2Text:'"EdTrainer TV es mi principal fuente de actualización docente. El rigor y el criterio con el que analiza cada herramienta son imprescindibles hoy en día."', test2Name:'Carlos P.', test2Meta:'Coordinador TIC',
@@ -2167,6 +2180,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       rec1Type:'Prompting Guide', rec1Title:'100 Educational Prompts for Teachers', rec1Desc:'Discover how to communicate effectively with ChatGPT and Claude to generate rubrics, lesson plans and more.', rec1Btn:'Download PDF',
       rec2Type:'NotebookLM Template', rec2Title:'MCP Server Template for NotebookLM', rec2Desc:'Better organize your NotebookLM connection and configuration with an MCP Server template designed to facilitate integrations, structure your work context and leverage this tool more efficiently.', rec2Btn:'Download template',
       rec3Type:'PDF Guide', rec3Title:'Gemini Certified Educator Exam Guide', rec3Desc:"Prepare for your official certification with this detailed guide on using Google's AI in educational environments.", rec3Btn:'Download Guide',
+      rec4Type:'Launch Guide', rec4Title:'Google for Education Launches · ISTE Orlando 2026', rec4Desc:'Every Google for Education announcement from ISTELive 26 in one place: Gemini and NotebookLM, Google Classroom, Google Workspace for Education and ChromeOS. Each launch with its description, the edition that includes it and its availability, so you can see at a glance what you can use today and what is coming soon.', rec4Btn:'Download Guide',
       testEyebrow:'<div class="eyebrow-dot"></div>Community', testH2:'What <em>teachers say</em>',
       test1Text:'"Thanks to Luis Alfonso\'s tutorials I have managed to integrate AI tools into my lesson unit development, saving hours every week."', test1Name:'María G.', test1Meta:'Secondary School Teacher',
       test2Text:'"EdTrainer TV is my main source of professional development. The rigor and insight with which he analyzes each tool are essential today."', test2Name:'Carlos P.', test2Meta:'ICT Coordinator',
@@ -2269,7 +2283,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     const rEy=$('#recursos .section-header .eyebrow'); if(rEy) rEy.innerHTML=t.recursosEyebrow;
     const rH2=$('#recursos .section-header h2'); if(rH2) rH2.innerHTML=t.recursosH2;
     const rLd=$('#recursos .section-header .lead'); if(rLd) rLd.textContent=t.recursosLead;
-    const rTypes=[t.rec1Type,t.rec2Type,t.rec3Type], rTitles=[t.rec1Title,t.rec2Title,t.rec3Title], rDescs=[t.rec1Desc,t.rec2Desc,t.rec3Desc], rBtns=[t.rec1Btn,t.rec2Btn,t.rec3Btn];
+    const rTypes=[t.rec1Type,t.rec2Type,t.rec3Type,t.rec4Type], rTitles=[t.rec1Title,t.rec2Title,t.rec3Title,t.rec4Title], rDescs=[t.rec1Desc,t.rec2Desc,t.rec3Desc,t.rec4Desc], rBtns=[t.rec1Btn,t.rec2Btn,t.rec3Btn,t.rec4Btn];
     $$('.recurso-card').forEach((c,i) => {
       const tp=c.querySelector('.recurso-type'); if(tp) tp.textContent=rTypes[i];
       const ti=c.querySelector('.recurso-title'); if(ti) ti.textContent=rTitles[i];
