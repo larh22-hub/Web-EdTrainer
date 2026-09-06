@@ -4,17 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Luis Alfonso Ruiz, Google Certified Trainer &amp; Innovator. Canal EdTrainer TV con +333.000 suscriptores. Formación en inteligencia artificial educativa, Google Workspace y tecnología para docentes. Madrid, España.">
-<meta name="keywords" content="EdTrainer TV, Luis Alfonso Ruiz, inteligencia artificial educación, formación docentes IA, Google Workspace educación, tecnología educativa, Gemini educación, Google Certified Trainer, formación in-company, YouTube educativo, asesoramiento YouTube, canal educativo">
 <link rel="canonical" href="https://www.edtrainertv.com/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:title" content="EdTrainer TV | Luis Alfonso Ruiz — Formación IA y Tecnología Educativa">
-<meta property="og:image" content="https://www.edtrainertv.com/perfil.jpg">
+<meta property="og:image" content="https://www.edtrainertv.com/hero-edtrainer.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luis Alfonso Ruiz, creador de EdTrainer TV, en su plató de grabación">
 <meta property="og:url" content="https://www.edtrainertv.com">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="EdTrainer TV">
+<meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EdTrainer TV — IA, tecnología y criterio">
 <meta name="twitter:description" content="+333.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
-<meta name="twitter:image" content="https://www.edtrainertv.com/perfil.jpg">
+<meta name="twitter:image" content="https://www.edtrainertv.com/hero-edtrainer.jpg">
+<meta name="twitter:image:alt" content="Luis Alfonso Ruiz, creador de EdTrainer TV, en su plató de grabación">
 <meta property="og:description" content="+333.000 docentes ya forman parte de la comunidad EdTrainer. Canal de referencia en educación y tecnología.">
 <title>EdTrainer TV | Luis Alfonso Ruiz — Formación en IA, Google Workspace y Tecnología Educativa</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23060d10'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='Georgia,serif' fill='%233dd8c4'>ET</text></svg>">
@@ -1307,7 +1312,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
         <div class="autor-card">
           <div class="autor-card-top">
             <div class="autor-photo">
-              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img" loading="lazy" decoding="async" width="600" height="750">
+              <img src="./perfil.jpg" alt="Luis Alfonso Ruiz" class="profile-img" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <h3 class="autor-name">Luis Alfonso Ruiz</h3>
             <div class="autor-role">EdTrainer TV</div>
@@ -2449,25 +2454,22 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       const load = document.getElementById('dl-btn-loading');
       const err = document.getElementById('dl-modal-err');
       submitBtn.disabled = true; txt.style.display = 'none'; load.style.display = 'inline'; err.style.display = 'none';
+      const file = pendingFile;
       try {
         const data = new FormData();
         data.append('email', form.querySelector('input[type=email]').value);
         data.append('recurso', pendingName);
         data.append('tipo', 'Descarga de recurso (suscripción)');
         data.append('_subject', 'Nueva descarga + suscripción: ' + pendingName);
-        const r = await fetch('https://formspree.io/f/xnjoooqj', {
+        await fetch('https://formspree.io/f/xnjoooqj', {
           method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
-        if (r.ok) {
-          triggerDownload(pendingFile);
-          closeModal();
-        } else {
-          err.style.display = 'block';
-        }
       } catch(e2) {
-        err.style.display = 'block';
+        // El registro del email puede fallar (cuota, red, bloqueo): la descarga se entrega igual.
       } finally {
         submitBtn.disabled = false; txt.style.display = 'inline'; load.style.display = 'none';
+        triggerDownload(file);
+        closeModal();
       }
     });
   })();
