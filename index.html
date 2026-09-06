@@ -412,27 +412,6 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .float-card-num { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--teal); line-height: 1; }
 .float-card-label { font-size: 12px; color: var(--dim2); text-transform: uppercase; letter-spacing: 0.1em; }
 
-/* ═══════════════════════════════════════════
-   TRUST BAR
-════════════════════════════════════════════ */
-#trust {
-  position: relative; z-index: 1;
-  border-top: 1px solid var(--teal-border);
-  border-bottom: 1px solid var(--teal-border);
-  background: linear-gradient(135deg, rgba(9,26,19,0.6), rgba(13,34,25,0.4));
-  padding: 28px 0;
-}
-.trust-inner {
-  display: flex; align-items: center; justify-content: center;
-  gap: 48px; flex-wrap: wrap;
-}
-.trust-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim2); }
-.trust-divider { width: 1px; height: 28px; background: var(--teal-border); }
-.trust-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; font-weight: 500; color: var(--dim);
-}
-.trust-item-icon { display: inline-flex; color: var(--teal); }
 
 /* ═══════════════════════════════════════════
    CANAL / YOUTUBE
@@ -927,8 +906,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
   .nav-center { display: none; }
   .nav-yt-btn { display: none; }
   .nav-burger { display: flex; }
-  .trust-inner { gap: 24px; }
-  .trust-divider { display: none; }
   .yt-cta-card { padding: 40px 28px; }
 }
 @media (max-width: 600px) {
@@ -1286,20 +1263,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ TRUST BAR ════════════ -->
-<section id="trust">
-  <div class="container--narrow">
-    <div class="trust-inner fade-in">
-      <span class="trust-label">Con la confianza de</span>
-      <div class="trust-item"><span class="trust-item-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.66 2.69 3 6 3s6-1.34 6-3v-4.5"/></svg></span><span class="trust-item-text">Google for Education</span></div>
-      <div class="trust-divider"></div>
-      <div class="trust-item"><span class="trust-item-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-5h4v5"/></svg></span><span class="trust-item-text">+200 Centros Educativos</span></div>
-      <div class="trust-divider"></div>
-      <div class="trust-item"><span class="trust-item-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="trust-item-text">4.9/5 Reseñas</span></div>
     </div>
   </div>
 </section>
@@ -2165,7 +2128,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       navCanal:'Canal', navSobre:'Sobre mí', navRecursos:'Recursos', navComunidad:'Comunidad', navAsesoramiento:'Asesoramiento', navContacto:'Contacto',
       heroTagline:'IA, tecnología y criterio', heroBtnCanal:'Ver el canal', heroBtnRecursos:'Recursos gratuitos',
       statSuscriptores:'Suscriptores', statVideos:'Vídeos', statAnos:'Años en YouTube', floatCardLabel:'Vistas mensuales',
-      trustLabel:'Con la confianza de', trustCentros:'+200 Centros Educativos', trustResenas:'4.9/5 Reseñas',
       canalH2:'IA, Tecnología y <em>Criterio</em>', canalLead:'Explora cientos de tutoriales, guías y análisis semanales sobre inteligencia artificial y educación.', canalFooterBtn:'Visitar canal en YouTube',
       sobreEyebrow:'<div class="eyebrow-dot"></div>Trayectoria', sobreH2:'Experiencia <em>en las aulas</em>',
       sobreP1:'<strong>Luis Alfonso Ruiz</strong> es Google Certified Trainer y Google Certified Innovator con base en Madrid, España. Es el creador de <strong>EdTrainer TV</strong>, canal de YouTube de referencia en tecnología educativa con más de <strong>333.000 suscriptores</strong> y más de 140.000 vistas mensuales, especializado en inteligencia artificial aplicada a la educación, Google Workspace para docentes y productividad educativa.',
@@ -2218,7 +2180,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
       navCanal:'Channel', navSobre:'About', navRecursos:'Resources', navComunidad:'Community', navAsesoramiento:'Consulting', navContacto:'Contact',
       heroTagline:'AI, technology and insight', heroBtnCanal:'Watch the channel', heroBtnRecursos:'Free resources',
       statSuscriptores:'Subscribers', statVideos:'Videos', statAnos:'Years on YouTube', floatCardLabel:'Monthly views',
-      trustLabel:'Trusted by', trustCentros:'+200 Schools', trustResenas:'4.9/5 Reviews',
       canalH2:'AI, Technology and <em>Insight</em>', canalLead:'Explore hundreds of tutorials, guides and weekly analyses on artificial intelligence and education.', canalFooterBtn:'Visit YouTube channel',
       sobreEyebrow:'<div class="eyebrow-dot"></div>Background', sobreH2:'Experience <em>in the classroom</em>',
       sobreP1:'<strong>Luis Alfonso Ruiz</strong> is a Google Certified Trainer and Google Certified Innovator based in Madrid, Spain. He is the creator of <strong>EdTrainer TV</strong>, a leading YouTube channel in educational technology with more than <strong>333,000 subscribers</strong> and over 140,000 monthly views, specializing in AI applied to education, Google Workspace for teachers, and educational productivity.',
@@ -2298,10 +2259,6 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--teal-border
     const floatLbl = $('.float-card-label'); if(floatLbl) floatLbl.textContent = t.floatCardLabel;
 
     // Trust
-    const trustLbl = $('.trust-label'); if(trustLbl) trustLbl.textContent = t.trustLabel;
-    const trustTexts = $$('.trust-item-text');
-    if(trustTexts[1]) trustTexts[1].textContent = t.trustCentros;
-    if(trustTexts[2]) trustTexts[2].textContent = t.trustResenas;
 
     // Canal
     const cH2=$('#canal .section-header h2'); if(cH2) cH2.innerHTML=t.canalH2;
